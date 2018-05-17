@@ -100,6 +100,17 @@ add_action( 'add_meta_boxes', 'cd_meta_box_add_company' );
 function cd_meta_box_add_company() {
     add_meta_box( 'my-meta-box-id', 'Company Name:', 'cd_meta_box_cb', 'page', 'normal', 'high' );
 }
+function cd_meta_box_cb( $post ) {
+    $values = get_post_custom( $post->ID );
+    $text = isset( $values['Company'] ) ? esc_attr( $values['Company'][0] ) : '';
+    wp_nonce_field( 'company_nonce', 'meta_box_nonce' );
+    ?>
+    <p>
+        <label for="Company"></label>
+        <input type="text" name="Company" id="Company" value="<?php echo $text; ?>" />
+    </p>
+    <?php
+}
 
 
 ?>
