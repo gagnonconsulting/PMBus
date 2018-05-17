@@ -164,6 +164,16 @@ function user_membership_field( $user ) {
 		<?php
 }
 
+function my_save_custom_user_profile_fields( $user_id ) {
+    if ( !current_user_can( 'edit_user', $user_id ) )
+        return FALSE;
+
+    update_usermeta( $user_id, 'membership', $_POST['membership'] );
+		update_usermeta( $user_id, 'company_name', $_POST['company_name'] );
+
+
+}
+
 add_action( 'admin_menu', 'addPMBusMenu' );
 
 function addPMBusMenu(){
