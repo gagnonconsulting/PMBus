@@ -13,6 +13,13 @@ function example_enqueue_styles() {
 
 add_action('wp_enqueue_scripts', 'example_enqueue_styles');
 
+// enqueue divi child styles - dependencies are in array
+function divi_child_enqueue() {
+wp_enqueue_style('divi_child_styles', get_stylesheet_directory_uri() . '/style.css', array('parent-theme', 'woocommerce-general', 'woocommerce-smallscreen', 'woocommerce-layout'), '1.0.0', 'all');
+}
+
+add_action('wp_enqueue_scripts', 'divi_child_enqueue');
+
 // take related products off of product listing page
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
