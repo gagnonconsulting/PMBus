@@ -18,6 +18,13 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_r
 
 // Override theme default specification for product # per row
 // Change number or products per row to 3
+add_filter('loop_shop_columns', 'loop_columns');
+if (!function_exists('loop_columns')) {
+	function loop_columns() {
+		return 1; // 1 products per row
+	}
+}
+
 
 
 ?>
