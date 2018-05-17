@@ -96,5 +96,10 @@ function gci_show_product_info() {
 }
 add_action('woocommerce_after_shop_loop_item_title', 'gci_show_product_info');
 
+add_action( 'add_meta_boxes', 'cd_meta_box_add_company' );
+function cd_meta_box_add_company() {
+    add_meta_box( 'my-meta-box-id', 'Company Name:', 'cd_meta_box_cb', 'page', 'normal', 'high' );
+}
+
 
 ?>
