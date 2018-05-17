@@ -32,6 +32,37 @@ remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_pr
 
 
 
+function gci_show_product_info() {
+
+
+
+	echo "<div class='gci_wc_product'>";
+
+
+
+		echo "<div style='margin-bottom: -10%; float:left;border:1px solid red; width:20%;'>";
+		echo get_the_post_thumbnail();
+		echo "</div>";
+
+		echo "<div style='margin-bottom: 0; float:left;border:1px solid red; width:30%;'>";
+		echo get_the_title();
+		echo "</div>";
+
+		echo "<div style='margin-bottom: 0; float:left;border:1px solid red; width:40%;'>";
+		echo get_the_excerpt();
+		echo "The excerpt will go here";
+		echo "</div>";
+
+		echo "<div style='margin-bottom: 0; float:left;border:1px solid red; width:10%;'>";
+		echo "and link here";
+		echo "</div>";
+
+	echo "</div>";
+
+
+
+}
+add_action('woocommerce_after_shop_loop_item_title', 'gci_show_product_info');
 
 
 ?>
