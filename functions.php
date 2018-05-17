@@ -131,6 +131,39 @@ function cd_meta_box_save_company( $post_id ) {
         update_post_meta( $post_id, 'Company', wp_kses( $_POST['Company'], $allowed ) );
 }
 
+function user_membership_field( $user ) {
+    $membership_status = get_the_author_meta( 'membership', $user->ID);
+		?>
+    <h3><?php _e('PMBus User Information'); ?></h3>
+    <table class="form-table">
+        <tr>
+            <th>
+            <label for="Membership Type"><?php _e('PMBus User Type'); ?>
+            </label></th>
+            <td><span class="description"></span><br>
+            <label><input type="radio" name="membership" <?php if ($membership_status == 'Full-Member-Admin' ) { ?>checked="checked"<?php }?> value="Full-Member-Admin">Full Member Admin<br /></label>
+            <label><input type="radio" name="membership" <?php if ($membership_status == 'Full-Member' ) { ?>checked="checked"<?php }?> value="Full-Member">Full Member<br /></label>
+						<label><input type="radio" name="membership" <?php if ($membership_status == 'Tools-Member' ) { ?>checked="checked"<?php }?> value="Tools-Member">Tools Member<br /></label>
+            </td>
+
+				</tr>
+
+				<tr>
+        		<th>
+            <label for="company_name"><?php _e('Company'); ?>
+            </label></th>
+          	<td>
+            <span class="description"><?php _e('Insert Your Company name'); ?></span><br>
+            <input type="text" name="company_name" id="company_name" value="<?php echo esc_attr( get_the_author_meta( 'company_name', $user->ID ) ); ?>" class="regular-text" /><br />
+          	</td>
+        </tr>
+
+
+
+    </table>
+		<?php
+}
+
 add_action( 'admin_menu', 'addPMBusMenu' );
 
 function addPMBusMenu(){
