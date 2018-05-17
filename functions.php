@@ -112,5 +112,23 @@ function cd_meta_box_cb( $post ) {
     <?php
 }
 
+add_action( 'save_post', 'cd_meta_box_save_company' );
+function cd_meta_box_save_company( $post_id ) {
+    // Bail if we're doing an auto save
+    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+    // if our nonce isn't there, or we can't verify it, bail
+    if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'company_nonce' ) ) return;
+    // if our current user can't edit this post, bail
+    if( !current_user_can( 'edit_post', $post_id ) ) return;
+    // now we can actually save the data
+    $allowed = array(
+        'a' => array( // on allow a tags
+            'href' => array() // and those anchords can only have href attribute
+        )
+    );
+    // Probably a good idea to make sure your data is set
+    if( isset( $_POST['Company'] ) )
+        update_post_meta( $post_id, 'Company', wp_kses( $_POST['Company'], $allowed ) );
+}
 
 ?>
