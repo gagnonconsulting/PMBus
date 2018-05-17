@@ -131,4 +131,32 @@ function cd_meta_box_save_company( $post_id ) {
         update_post_meta( $post_id, 'Company', wp_kses( $_POST['Company'], $allowed ) );
 }
 
+add_action( 'admin_menu', 'addPMBusMenu' );
+
+function addPMBusMenu(){
+	add_menu_page(
+	'PMBus Admin Settings',
+	 'PMBus',
+	  'manage_options',
+		 'pmbus_members_page',
+		  'pmbus_members_page_build',
+			 'dashicons-id',
+			  3);
+ add_submenu_page(
+	 'pmbus_members_page',
+	 'Members Pages',
+	  'Member Pages',
+	  'manage_options',
+	   'members_pages_slug',
+ 		 'edit_user_roles_function');
+ add_submenu_page(
+ 	 'pmbus_members_page',
+  	'Add New Member',
+		 'Add New Member',
+		 'manage_options',
+		  'add_new_members_slug',
+		  'add_new_members_function');
+}
+
+
 ?>
