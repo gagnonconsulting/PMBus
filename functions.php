@@ -174,6 +174,13 @@ function my_save_custom_user_profile_fields( $user_id ) {
 
 }
 
+add_action( 'show_user_profile', 'user_membership_field' );
+add_action( 'edit_user_profile', 'user_membership_field' );
+add_action( 'user_new_form', 'user_membership_field' );
+add_action( 'personal_options_update', 'my_save_custom_user_profile_fields' );
+add_action( 'edit_user_profile_update', 'my_save_custom_user_profile_fields' );
+add_action( 'user_new_update', 'my_save_custom_user_profile_fields' );
+
 add_action( 'admin_menu', 'addPMBusMenu' );
 
 function addPMBusMenu(){
