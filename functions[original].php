@@ -99,6 +99,14 @@ function gci_show_product_info() {
 
 add_action('woocommerce_after_shop_loop_item_title', 'gci_show_product_info');
 
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+function theme_enqueue_styles() {
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        array('parent-style')
+    );
+}
 
 // Add custom Company field to 'Edit Page' in dashboard
 add_action( 'add_meta_boxes', 'cd_meta_box_add_company' );
@@ -331,10 +339,10 @@ function pmbus_members_page_build() {
 				else {
         	tr[i].style.display = "none";
       	}
-    	}
-  	}
-	}
-	</script>
+    	 }
+  	 }
+	 }
+  </script>
 	<?php
 	}
 
