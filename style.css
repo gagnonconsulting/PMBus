@@ -1,0 +1,70 @@
+/*
+Theme Name: Divi_Child_PMBus
+Version: 0.1.0
+Description: Created by <a href="http://www.themify.me">Themify </a> Customized by <a href="http://www.gagnonconsulting.com">Gagnon Consulting, Inc. </a>.
+Template: Divi
+Author: Gagnon Consulting, Inc.
+Author URI: http://www.gagnonconsulting.com
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Copyright: (c) 2017 GCI.
+Tags: featured-images, translation-ready, custom-menu
+
+---------
+
+
+*/
+
+@media (min-width: 768px) {
+
+.site-main ul.products li.product {
+    width: 100%;
+    float: none;
+    margin: 0;
+}
+
+.site-main ul.products {
+border-right: 1px solid;
+border-bottom: 1px solid;
+margin: 1em 0;
+}
+
+.site-main ul.products li.product .product_table {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.site-main ul.products li.product div.one_third {
+    width: 100%;
+    float: left;
+    margin: 0;
+    text-align: left;
+    background-color: #eee;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    padding: 1em 2em;
+    box-sizing: border-box;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+
+#gci-product-table {
+    width: 100%;
+    border: 1px solid #dddddd;
+}
+
+tr:nth-child(even) {
+    background-color: #ededed;
+}
+
+.gci-product-table-td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#company-banner {
+  background: url('bgimage.jpg') no-repeat;
+  background-size: 100%;
+}

@@ -11,19 +11,20 @@
     register_taxonomy( 'companies', array( 'post', 'page', 'company' ), $args );
   }
 
-// Add term page
-function companies_taxonomy_add_new_meta_field() {
-	// this will add the custom meta field to the add new term page
-	?>
-	<div class="form-field">
-		<label for="term_meta[custom_term_meta]"><?php _e( 'Phone Number:', 'companies' ); ?></label>
-		<input type="text" name="term_meta[custom_term_meta]" id="term_meta[custom_term_meta]" value="">
-		<p class="description"><?php _e( 'Enter a value for this field','companies' ); ?></p>
-	</div>
-<?php
-}
+  // Add term page
+  function phone_number_taxonomy_add_new_meta_field() {
+  	// this will add the custom meta field to the add new term page
+  	?>
+  	<div class="form-field">
+  		<label for="term_meta[custom_term_meta]"><?php _e( 'Phone Number:', 'phone_number' ); ?></label>
+  		<input type="text" name="term_meta[custom_term_meta]" id="term_meta[custom_term_meta]" value="">
+  		<p class="description"><?php _e( 'Enter a value for this field','phone_number' ); ?></p>
+  	</div>
+  <?php
+  }
 
-function companies_taxonomy_edit_meta_field($term) {
+  // Edit term page
+function phone_number_taxonomy_edit_meta_field($term) {
 
 	// put the term ID into a variable
 	$t_id = $term->term_id;
@@ -31,10 +32,10 @@ function companies_taxonomy_edit_meta_field($term) {
 	// retrieve the existing value(s) for this meta field. This returns an array
 	$term_meta = get_option( "taxonomy_$t_id" ); ?>
 	<tr class="form-field">
-	<th scope="row" valign="top"><label for="term_meta[custom_term_meta]"><?php _e( 'Phone Number:', 'companies' ); ?></label></th>
+	<th scope="row" valign="top"><label for="term_meta[custom_term_meta]"><?php _e( 'Phone Number:', 'phone_number' ); ?></label></th>
 		<td>
 			<input type="text" name="term_meta[custom_term_meta]" id="term_meta[custom_term_meta]" value="<?php echo esc_attr( $term_meta['custom_term_meta'] ) ? esc_attr( $term_meta['custom_term_meta'] ) : ''; ?>">
-			<p class="description"><?php _e( 'Enter a value for this field','companies' ); ?></p>
+			<p class="description"><?php _e( 'Enter a value for this field','phone_number' ); ?></p>
 		</td>
 	</tr>
 <?php
@@ -55,3 +56,8 @@ function save_taxonomy_custom_meta( $term_id ) {
 		update_option( "taxonomy_$t_id", $term_meta );
 	}
 }
+
+//foreach ($terms as $term) {
+     // $phone_number will be "P Elena" or "P Andrea" in your case
+     //$phone_number = get_field('phone_number', $term->taxonomy.'_'.$term->term_id);
+//}
