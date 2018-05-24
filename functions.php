@@ -49,3 +49,6 @@ add_action(
 add_action( 'companies_edit_form_fields', 'phone_number_taxonomy_edit_meta_field', 10, 2 );
 add_action( 'edited_companies', 'save_taxonomy_custom_meta', 10, 2 );
 add_action( 'create_companies', 'save_taxonomy_custom_meta', 10, 2 );
+
+
+add_action( 'admin_menu', 'companies_menu_link' );
