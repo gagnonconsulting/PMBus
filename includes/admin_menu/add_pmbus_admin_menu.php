@@ -32,7 +32,8 @@ function add_custom_link_into_appearnace_menu() {
     $submenu['themes.php'][] = array( 'Custom Link', 'manage_options', $permalink );
 }
 
-add_action('admin_menu', 'remove_admin_menu_links', '999');
+// Below is the code to remove admin menu tabs for a specified email (user)
+//add_action('admin_menu', 'remove_admin_menu_links', '999');
 function remove_admin_menu_links(){
     $user = wp_get_current_user();
     if( $user && isset($user->user_email) && 'Richard@gagnonconsulting.com' == $user->user_email ) {
