@@ -84,7 +84,7 @@
     }
 </style>
 
-		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+		<input type="text" id="myInput" onkeyup="myFunction(); myFunction2()" placeholder="Search for names.." title="Type in a name">
 		<div class='row'>
 		<div style='padding-top: 1%; background-color:#f8f8f8;'>
     	<h2 style='text-align:center;'>Full Members &emsp;
@@ -116,7 +116,7 @@
 
 		<div style='padding-top: 1%; background-color:#f8f8f8;'>
     	<h2 style='text-align: center;'>Tools Members  &emsp; <a target='_blank' href='https://pmbus.wpengine.com/wp-admin/users.php?group_ids%5B0%5D=5'><button class='btn_members'>PMBus Tools Members</button></a></h2>
-			<table>
+			<table id="myTable2">
 			<tr>
     	<th>Company: </th>
     	<th>Login: </th>
@@ -151,6 +151,27 @@
     	}
   	}
 	}
+  function myFunction2() {
+  	var input, filter, table, tr, td, i;
+  	input = document.getElementById("myInput");
+  	filter = input.value.toUpperCase();
+  	table = document.getElementById("myTable2");
+  	tr = table.getElementsByTagName("tr");
+  	for (i = 0; i < tr.length; i++) {
+    	td = tr[i].getElementsByTagName("td")[0];
+    	if (td) {
+      	if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        	tr[i].style.display = "";
+      	}
+				else {
+        	tr[i].style.display = "none";
+      	}
+    	}
+  	}
+	}
 	</script>
 	<?php
+
+
+
 }
