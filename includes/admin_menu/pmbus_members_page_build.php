@@ -1,3 +1,5 @@
+
+
 <?php
   function pmbus_members_page_build() {
 	?>
@@ -28,6 +30,15 @@
   	text-align: left;
   	padding: 12px;
 	}
+
+  #myTable th {
+    background-color: #6b3064;
+    color: white;
+  }
+  #myTable2 th {
+    background-color: #6b3064;
+    color: white;
+  }
 
 	#myTable tr {
   	border-bottom: 1px solid #ddd;
