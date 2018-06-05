@@ -40,22 +40,3 @@ add_action( 'companies_edit_form_fields', 'phone_number_taxonomy_edit_meta_field
 add_action( 'edited_companies', 'save_taxonomy_custom_meta', 10, 2 );
 add_action( 'create_companies', 'save_taxonomy_custom_meta', 10, 2 );
 add_action( 'admin_menu', 'companies_menu_link' );
-
-$args = array(
-    'posts_per_page' => -1,
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'product_cat',
-            'field' => 'slug',
-            'terms' => 'company-renesas'
-        )
-    ),
-    'post_type' => 'product',
-    'orderby' => 'title',
-);
-$the_query = new WP_Query( $args );
-echo '<div style="padding-left:20%">';
-echo '<pre>';
-print_r($the_query);
-echo '</pre>';
-echo '</div>';
