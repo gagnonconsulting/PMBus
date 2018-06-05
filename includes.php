@@ -15,7 +15,7 @@
   require_once( get_stylesheet_directory() . '/includes/admin_menu/pmbus_admin_add_new_member.php');
   // Display Membership types and user information on admin page
   require_once( get_stylesheet_directory() . '/includes/admin_menu/groups_users_list_members.php');
-  
+
 
   // Single Column product display
   require_once( get_stylesheet_directory() . '/includes/single_column_product_display.php');
@@ -26,3 +26,5 @@
 
 
   require_once( get_stylesheet_directory() . '/includes/user_group_memberships.php');
+
+  require_once( get_stylesheet_directory() . '/includes/products_by/products_by_category.php');

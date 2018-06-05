@@ -63,8 +63,3 @@ tr:nth-child(even) {
     text-align: left;
     padding: 8px;
 }
-
-#company-banner {
-  background: url('bgimage.jpg') no-repeat;
-  background-size: 100%;
-}
