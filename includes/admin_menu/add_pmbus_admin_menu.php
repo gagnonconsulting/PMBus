@@ -29,7 +29,7 @@ function add_pmbus_admin_menu(){
 	  'manage_options',
 		 'pmbus_dev_page',
 		  'pmbus_dev_testing_page_build', // Function that is called to build 'PMBus' Page
-			 'dashicons-id', // Icon that displays next to menu item
+			 'dashicons-admin-tools', // Icon that displays next to menu item
 				3);
 }
 

@@ -60,7 +60,6 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 							//build table based on the input of custom field 'Company' in dashboard
 							$company_custom_field = "company-" . get_post_meta($post->ID, 'Company', true);
-
 							?>
 						</div>
 					</div>
@@ -76,59 +75,22 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 ?>
 <div style='padding-left:10%;'>
-	<br><?php
+	<br>
+	<?php
 
-	//print all categories and cubcategories
-	$args = array(
-		'taxonomy' => 'product_cat',
-		'hide_empty' => false,
-		'parent'   => 0
-	);
+	global $wpdb;
+	$gci_company_id_query = $wpdb->get_results(
+	  "
+	  SELECT DISTINCT term_id FROM wp_terms WHERE slug = '$company_custom_field'
+	  ");
 
-	$product_cat = get_terms( $args );
-
-	foreach ($product_cat as $parent_product_cat)
-	{
-		if ($parent_product_cat->name != 'Company' && $parent_product_cat->name != 'Uncategorized'){
-		?>
-
-		<ul>
-			<li><h2><a href='<?= get_term_link($parent_product_cat->term_id) ?>'><?= $parent_product_cat->name ?></a></h2>
-				<hr align='left' width='50%'><br>
-				<ul>
-
-					<?php
-					$child_args = array(
-						'taxonomy' => 'product_cat',
-						'hide_empty' => false,
-						'parent'   => $parent_product_cat->term_id
-					);
-
-					$child_product_cats = get_terms( $child_args );
-					foreach ($child_product_cats as $child_product_cat)
-					{ ?>
-						<li style='padding-left: 2%;'>
-							<h3><a href='<?= get_term_link($child_product_cat->term_id) ?>'><?= $child_product_cat->name?></a></h3>
-						</li>
-						<div style='margin-left: -8%;'>
-							<?php
-							echo do_shortcode("[products category='$child_product_cat->term_id']");
-							?><br>
+	$gci_company_id = $gci_company_id_query[0]->term_id;
+	?>
+	<h3>ID of Company page you are on: <?= $gci_company_id; ?></h3><br>
+	<?php
 
 
-
-						</div>
-						<?php
-					}
-					?>
-
-				</ul>
-			</li>
-		</ul>
-
-		<?php
-		}
-	} ?>
+	?>
 </div>
 
 <?php
