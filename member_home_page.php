@@ -88,14 +88,50 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 	?>
 	<h3>ID of Company page you are on: <?= $gci_company_id; ?></h3><br>
 	<?php
-
-
+	$gci_company_products_query = $wpdb->get_results(
+		"
+		SELECT DISTINCT company.object_id
+  			FROM (SELECT * FROM `wp_term_relationships` WHERE term_taxonomy_id = $gci_company_id) AS company,
+  	  	(SELECT * FROM `wp_term_relationships` WHERE term_taxonomy_id = $gci_company_id) AS category
+  		WHERE company.object_id = category.object_id
+		"
+	);
+	echo '<pre>';
+	print_r($gci_company_products_query);
+	echo '</pre>';
+	echo '</div>';
+	$product_count = count($gci_company_products_query);
 	?>
+	<div style='padding-left:10%; padding-right:10%'>
+	<table id="gci-product-table" class='products-columns-1'>
+	<?php
+
+	for ($printed_products = 0; $printed_products < $product_count; $printed_products++) {
+		$product_loop_id = 0;
+		$product_loop_id = $gci_company_products_query[$printed_products]->object_id;
+		echo do_shortcode("[products ids='$product_loop_id']");
+	}
+	?>
+</table>
 </div>
+</div>
+
+
+<div style='padding-left:10%; padding-right:10%'>
+<table id="gci-product-table" class='products-columns-1'>
+
+<?php
+
+?>
+
+</table>
+</div>
+
+
 
 <?php
 //echo do_shortcode("[products category='$company']");
-echo do_shortcode("[products category='$company_custom_field']");
+//echo do_shortcode("[products category='$company_custom_field']");
 ?>
 </div>
 
