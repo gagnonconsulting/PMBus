@@ -90,12 +90,13 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 	<?php
 	$gci_company_products_query = $wpdb->get_results(
 		"
-		SELECT DISTINCT company.object_id
+		SELECT *
   			FROM (SELECT * FROM `wp_term_relationships` WHERE term_taxonomy_id = $gci_company_id) AS company,
   	  	(SELECT * FROM `wp_term_relationships` WHERE term_taxonomy_id = $gci_company_id) AS category
   		WHERE company.object_id = category.object_id
 		"
 	);
+
 	echo '<pre>';
 	print_r($gci_company_products_query);
 	echo '</pre>';
@@ -106,8 +107,32 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 	<table id="gci-product-table" class='products-columns-1'>
 	<?php
 
+	$gci_parent_category = '';
+	$gci_child_category = '';
+
 	for ($printed_products = 0; $printed_products < $product_count; $printed_products++) {
 		$product_loop_id = 0;
+
+		//Get categories of product by ID
+		$gci_product_category_query = $wpdb->get_results(
+			"
+			SELECT * FROM
+			(
+			SELECT company.object_id, name, slug, parent FROM
+			(SELECT * FROM wp_term_relationships r WHERE r.term_taxonomy_id = 677) AS company,
+			(SELECT * FROM wp_term_relationships r1) AS category,
+			(SELECT * FROM wp_terms) AS terms,
+			(SELECT * FROM wp_term_taxonomy) AS taxonomy
+			WHERE company.object_id = category.object_id AND terms.term_id = category.term_taxonomy_id
+			AND terms.slug NOT LIKE 'http%' AND terms.name != 'simple'
+			AND terms.slug NOT LIKE 'Company' AND terms.slug NOT LIKE 'company-%'
+			AND terms.name != 'featured' AND taxonomy.term_taxonomy_id = terms.term_id
+			AND taxonomy.taxonomy NOT LIKE 'pa_company'
+			) as company_product_categories
+			"
+		);
+
+
 		$product_loop_id = $gci_company_products_query[$printed_products]->object_id;
 		echo do_shortcode("[products ids='$product_loop_id']");
 	}
