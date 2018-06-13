@@ -30,7 +30,7 @@ function cd_meta_box_cb( $post ) {
 
       <label for="Company"></label>
       <select name="Company" id="Company">
-        <option value="" selected>Please Select Company</option>
+        <option value="" selected> --------- </option>
         <?php
           for($i=0; $i<count($cquery); $i++){?>
             <option value="<?= $cquery[$i]->slug ?>" <?php selected( $selected, $cquery[$i]->slug ); ?>><?= $cquery[$i]->name ?></option><?php
@@ -86,7 +86,7 @@ function cd_meta_box_cb( $post ) {
                 <option value="<?php echo esc_attr( get_the_author_meta( 'company_name', $user->ID ) ); ?>" selected></option>
               </select>
 
-          
+
             </td>
           </tr>
 
