@@ -7,7 +7,7 @@
   require_once( get_stylesheet_directory() . '/includes/gci_woocommerce_removals.php');
 
   // Custom User fields functions
-  require_once( get_stylesheet_directory() . '/includes/user_custom_fields.php');
+  require_once( get_stylesheet_directory() . '/includes/company_meta_page_field.php');
 
   // PMBus admin custom pages and menu
   require_once( get_stylesheet_directory() . '/includes/admin_menu/add_pmbus_admin_menu.php');
