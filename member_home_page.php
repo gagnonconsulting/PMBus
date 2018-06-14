@@ -1,5 +1,7 @@
 <?php
-/* Template Name: Member Home Page */
+/*
+Template Name: Member Home Page
+*/
 
 get_header();
 
@@ -115,7 +117,7 @@ $gci_company_id_query = $wpdb->get_results(
 		for ($pa = 0; $pa < count($parent); $pa++) {?>
 			<div style='padding-left:10%; padding-right:10%;'>
 				<p>
-					<h1><?= $parent[$pa]->name ?></h1>
+					<h1 style='color:#5C2961'><?= $parent[$pa]->name ?></h1>
 					<hr width="30%" align="left">
 				</p>
 				<?php
@@ -146,10 +148,8 @@ $gci_company_id_query = $wpdb->get_results(
 					<?php
 					for ($i = 0; $i < count($gci_company_products_query); $i++) {
 						?>
-
+						<h2 style='color:#EDB062'><?= $gci_company_products_query[$i]->name ?></h2>
 						<?php
-						echo "<h2>" . $gci_company_products_query[$i]->name . "</h2>";
-						echo "<br>";
 						$cat_id = $gci_company_products_query[$i]->term_id;
 
 						$pq = $wpdb->get_results(
@@ -170,21 +170,26 @@ $gci_company_id_query = $wpdb->get_results(
 								WHERE term_id = " . $cat_id . "
 								"
 							);?>
-							<pre>
-								<?php //print_r($pq); ?>
-							</pre>
-							<table class="table" style="margin-left: -20%;">
-								<tbody>
+
+
+
+
 									<?php
+									//Child Category Loop Run list of product IDs variable
+									$pid = '';
+									//Running through array of products in child category and adding IDs $pid seperated by a comma
 									for ($k = 0; $k < count($pq); $k++) {
 										$product_loop_id = $pq[$k]->object_id;
-										?><tr><?php
-										echo do_shortcode("[products ids='$product_loop_id']");
-										?></tr><?php
+									$pid = $pid . $product_loop_id . ', ';
 									}
+									//Trimming the last comma in the $pid variable
+									$p2id = rtrim($pid,", ");
+									//Running shop loop based on IDs variable and retrieving products in child category
 									?>
-								</tbody>
-							</table>
+									<div><?php
+									echo do_shortcode("[products ids='$p2id']");
+									?>
+								</div>
 							<br>
 						<?php } ?>
 					</div>

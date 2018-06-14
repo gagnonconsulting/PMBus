@@ -54,12 +54,23 @@ margin: 1em 0;
     border: 1px solid #dddddd;
 }
 
+
+
 tr:nth-child(even) {
     background-color: #ededed;
+}
+
+.gci-product-table {
+    width: 100%;
+    border: 1px solid #dddddd;
 }
 
 .gci-product-table-td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+}
+
+.gci-product-table-td tr:nth-child(even) {
+    background-color: #ededed;
 }
