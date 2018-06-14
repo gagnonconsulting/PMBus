@@ -47,10 +47,10 @@ ob_start();
           $child_product_cats = get_terms( $child_args );
           foreach ($child_product_cats as $child_product_cat)
           { ?>
-            <li style='padding-left: 2%;'>
+            <li>
               <h3><a href='<?= get_term_link($child_product_cat->term_id) ?>'><?= $child_product_cat->name?></a></h3>
             </li>
-            <div style='margin-left: -8%;'>
+            <div>
               <?php
               echo do_shortcode("[products category='$child_product_cat->term_id']");
               ?><br>
