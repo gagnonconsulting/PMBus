@@ -76,7 +76,7 @@ return $gci_category_contents;
 
 }
 
-function products_by_company(){
+function products_by_company() {
 
   $gci_company_contents = '';
 

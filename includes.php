@@ -29,3 +29,5 @@
   require_once( get_stylesheet_directory() . '/includes/user_group_memberships.php');
 
   require_once( get_stylesheet_directory() . '/includes/products_by/products_by_category.php');
+
+  require_once( get_stylesheet_directory() . '/includes/shortcodes/list_companies.php');

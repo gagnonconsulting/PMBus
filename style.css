@@ -15,7 +15,7 @@ Tags: featured-images, translation-ready, custom-menu
 
 */
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
 
 .site-main ul.products li.product {
     width: 100%;
@@ -48,6 +48,8 @@ margin: 1em 0;
     overflow: hidden;
 }
 
+*/
+
 
 #gci-product-table {
     width: 100%;
@@ -73,4 +75,31 @@ tr:nth-child(even) {
 
 .gci-product-table-td tr:nth-child(even) {
     background-color: #ededed;
+}
+
+@media only screen and (max-width: 900px) {
+  .gci_hide {
+    display:none;
+  }
+}
+
+.product-category.grid_item.product img {
+    display: none;
+}
+
+.inline_list ul {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 0;
+}
+
+
+.inline_list li {
+  list-style: none;
+}
+
+@media only screen and (min-width: 900px) {
+  .rwd-break {
+    display:none;
+  }
 }
