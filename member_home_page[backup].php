@@ -7,7 +7,7 @@
 get_header();
 
 $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
-
+remove_action('woocommerce_loaded', 'gci_show_product_info', 100);
 
 ?>
 
@@ -55,6 +55,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 								<div style='background-image:url("http://localhost:8888/divi_child_pmbus/wp-content/uploads/2018/05/PMBus-Banner.jpeg;"); background-size:100%;'>
 									<?php echo get_the_post_thumbnail(); ?>
 								</div>
+
 
 							</div>
 
@@ -195,18 +196,17 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 									}?>
 
 
-
 								<?php
 								//echo do_shortcode("[products category='$company']");
 								//echo do_shortcode("[products category='$company_custom_field']");
 								?>
-				</div>
+
 
 							<?php
 							if ( ! $is_page_builder_used )
 							wp_link_pages( array( 'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'Divi' ), 'after' => '</div>' ) );
 							?>
-						</div> <!-- .entry-content -->
+
 
 
 

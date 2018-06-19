@@ -73,10 +73,7 @@ function gci_list_companies() {
   </div>
   <?php
   $gci_companies_list = ob_get_clean();
-  return $gci_companies_list;?>
-
-  <?php
-
+  return $gci_companies_list;
 }
 
 add_shortcode('list_companies', 'gci_list_companies');

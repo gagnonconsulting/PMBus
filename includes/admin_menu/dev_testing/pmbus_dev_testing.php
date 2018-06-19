@@ -76,7 +76,6 @@ function pmbus_dev_testing_page_build() {
             echo "<h2>" . $gci_company_products_query[$i]->name . "</h2>";
             echo "<br>";
             $cat_id = $gci_company_products_query[$i]->term_id;
-            echo "<p>ID: " . $cat_id . "</p>";
 
             $pq = $wpdb->get_results(
               "
@@ -96,13 +95,6 @@ function pmbus_dev_testing_page_build() {
                 WHERE term_id = " . $cat_id . "
                 "
               );
-              echo '<pre>';
-              //print_r($pq);
-              echo '</pre>';
-              for ($k = 0; $k < count($pq); $k++) {
-                $product_loop_id = $pq[$k]->object_id;
-                echo do_shortcode("[products ids='$product_loop_id']");
-              }
               ?>
             </table>
           <?php } ?>
