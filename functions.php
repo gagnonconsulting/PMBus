@@ -31,10 +31,10 @@ add_action( 'user_new_update', 'my_save_custom_user_profile_fields' );
 
 // Adds custom meta field to taxonomy 'Companies' add new page
 add_action(
-    'companies_add_form_fields', // {$taxonomy_name}_add_form_fields - Taxonomy you want to add field to
-    'phone_number_taxonomy_add_new_meta_field', // {$custom_meta_field} Add the function name to that taxonomy
-    10,
-    2
+  'companies_add_form_fields', // {$taxonomy_name}_add_form_fields - Taxonomy you want to add field to
+  'phone_number_taxonomy_add_new_meta_field', // {$custom_meta_field} Add the function name to that taxonomy
+  10,
+  2
 );
 add_action( 'companies_edit_form_fields', 'phone_number_taxonomy_edit_meta_field', 10, 2 );
 add_action( 'edited_companies', 'save_taxonomy_custom_meta', 10, 2 );

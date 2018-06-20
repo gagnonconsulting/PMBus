@@ -61,8 +61,10 @@ function cd_meta_box_cb( $post ) {
 
   function user_membership_field( $user ) {
     $membership_status = get_the_author_meta( 'membership', $user->ID);
+
+
+
     ?>
-    <h3><?php _e('PMBus User Information'); ?></h3>
     <table class="form-table">
       <tr>
         <th>
@@ -76,19 +78,6 @@ function cd_meta_box_cb( $post ) {
 
         </tr>
 
-        <tr>
-          <th>
-            <label for="company_name"><?php _e('Company'); ?>
-            </label></th>
-            <td>
-              <span class="description"><?php _e('Insert Your Company name'); ?></span><br>
-              <select name="company_name" id="company_name">
-                <option value="<?php echo esc_attr( get_the_author_meta( 'company_name', $user->ID ) ); ?>" selected></option>
-              </select>
-
-
-            </td>
-          </tr>
 
 
 
@@ -102,7 +91,10 @@ function cd_meta_box_cb( $post ) {
         return FALSE;
 
         update_usermeta( $user_id, 'membership', $_POST['membership'] );
-        update_usermeta( $user_id, 'company_name', $_POST['company_name'] );
+
 
 
       }
+
+      add_action( 'personal_options_update', 'my_save_custom_user_profile_fields' );
+      add_action( 'edit_user_profile_update', 'my_save_custom_user_profile_fields' );
