@@ -47,7 +47,7 @@ function pmbus_members_page_build() {
     </style>
 
 
-    <h2 style='font-size: 2em; text-align: center;'>PMBus Members Dashboard</h2>
+    <h2 style='font-size: 2em; text-align: center;'>PMBus Member (Users) Dashboard</h2>
 
     <style>
       table {
