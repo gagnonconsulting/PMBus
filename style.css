@@ -18,9 +18,9 @@ Tags: featured-images, translation-ready, custom-menu
 /* @media (min-width: 768px) {
 
 .site-main ul.products li.product {
-    width: 100%;
-    float: none;
-    margin: 0;
+  width: 100%;
+  float: none;
+  margin: 0;
 }
 
 .site-main ul.products {
@@ -35,17 +35,17 @@ margin: 1em 0;
 }
 
 .site-main ul.products li.product div.one_third {
-    width: 100%;
-    float: left;
-    margin: 0;
-    text-align: left;
-    background-color: #eee;
-    border-left: 1px solid;
-    border-top: 1px solid;
-    padding: 1em 2em;
-    box-sizing: border-box;
-    flex-grow: 1;
-    overflow: hidden;
+  width: 100%;
+  float: left;
+  margin: 0;
+  text-align: left;
+  background-color: #eee;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  padding: 1em 2em;
+  box-sizing: border-box;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 */
@@ -102,4 +102,12 @@ tr:nth-child(even) {
   .rwd-break {
     display:none;
   }
+}
+
+.et-fixed-header {
+  background-color: #28794F !important;
+}
+
+#top-header {
+  background-color: #28794F !important;
 }
