@@ -104,10 +104,6 @@ tr:nth-child(even) {
   }
 }
 
-.et-fixed-header {
-  background-color: #28794F !important;
-}
-
-#top-header {
-  background-color: #28794F !important;
+.et-cart-info {
+  display:none;
 }

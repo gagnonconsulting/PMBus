@@ -65,7 +65,6 @@ function remove_admin_menu_links(){
 		remove_menu_page('tablepress');
 		remove_menu_page('woocommerce');
 		remove_menu_page('edit.php?post_type=project' );
-		remove_menu_page('edit.php?post_type=product' );
 		remove_menu_page('wpengine-common' );
 
   }

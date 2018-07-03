@@ -9,7 +9,6 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 <div id="main-content">
 	<div class="container">
-		<h1>New Git Push</h1>
 		<div id="content-area" class="clearfix">
 			<div id="left-area">
 				<?php
@@ -43,7 +42,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 								<!-- get featured image -->
 								<div>
-									<div style='background-image:url("http://localhost:8888/divi_child_pmbus/wp-content/uploads/2018/05/PMBus-Banner.jpeg;"); background-size:100%;'>
+									<div style='background-size:100%;'>
 										<?php echo get_the_post_thumbnail(); ?>
 									</div>
 								</div>
