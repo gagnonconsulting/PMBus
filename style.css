@@ -107,3 +107,7 @@ tr:nth-child(even) {
 .et-cart-info {
   display:none;
 }
+
+.photo {
+  display: none;
+}
