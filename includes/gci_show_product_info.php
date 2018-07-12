@@ -5,7 +5,7 @@ function gci_show_product_info() {
   global $product;
 
   $url = $product->get_attribute( 'pa_product_link' );
-  $clickable_url = "<a target='_blank' href='".$url."'>Visit Link</a>";
+  $clickable_url = "<a target='_blank' href='".$url."'>Visit</a>";
   ?>
 
   <td style='padding:0px' class='gci-product-table-td gci_hide' width='15%' height='0'>

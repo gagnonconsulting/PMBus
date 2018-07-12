@@ -40,6 +40,22 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 							<!-- pad content -->
 							<div style='padding-top:2%;'>
 
+								<?php
+								function GetImageUrlsByProductId( $productId){
+
+								$product = new WC_product($productId);
+								$attachmentIds = $product->get_gallery_attachment_ids();
+								$imgUrls = array();
+								foreach( $attachmentIds as $attachmentId )
+								{
+									$imgUrls[] = wp_get_attachment_url( $attachmentId );
+								}
+
+								return $imgUrls;
+								}
+
+								GetImageUrlsByProductId( 2330 );
+								?>
 								<!-- get featured image -->
 								<div>
 									<div style='background-size:100%;'>
@@ -54,14 +70,37 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 								?>
 							</div>
 							<?php
+							global $wpdb;
 							//-----------Check current custom company field value ******* V
 							//<?php echo get_post_meta($post->ID, 'Company', true);
 							?>
 							<br>
-
+							<div style="padding:10%">
+								<?php $gci_featured_products = $wpdb->get_results("
+									SELECT * FROM
+											(
+												SELECT company.object_id, name, slug, parent, terms.term_id FROM
+												(SELECT * FROM wp_term_relationships r WHERE r.term_taxonomy_id = 804) AS company,
+												(SELECT * FROM wp_term_relationships r1) AS category,
+												(SELECT * FROM wp_terms) AS terms,
+												(SELECT * FROM wp_term_taxonomy) AS taxonomy
+												WHERE company.object_id = category.object_id AND terms.term_id = category.term_taxonomy_id
+												AND terms.slug NOT LIKE 'http%' AND terms.name != 'simple'
+												AND terms.slug NOT LIKE 'Company' AND terms.slug NOT LIKE 'company-%'
+												AND terms.name = 'featured'
+												AND taxonomy.taxonomy NOT LIKE 'pa_company' AND parent != 0
+											) as categories
+                                            WHERE parent=667
+                                            GROUP BY object_id
+									"); ?>
+									<?php
+										if($gci_featured_products != null){ ?>
+											<h1>Featured Products</h1><br> <?php
+											echo do_shortcode('[products limit="3" category="'.$company_custom_field.'" visibility="featured"]');
+										}?>
+							</div>
 							<?php
 
-							global $wpdb;
 							$gci_company_id_query = $wpdb->get_results(
 							"
 							SELECT DISTINCT term_id FROM wp_terms WHERE slug = '$company_custom_field'

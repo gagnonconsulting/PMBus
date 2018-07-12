@@ -36,3 +36,5 @@ require_once( get_stylesheet_directory() . '/includes/shortcodes/list_pmbus_memb
 
 // Custom User Meta 'Company'
 require_once( get_stylesheet_directory() . '/includes/custom_meta_fields/user_company_meta_field.php');
+
+require_once( get_stylesheet_directory() . '/includes/admin_menu/training_resources/training_resources_page_build.php');
