@@ -1,7 +1,6 @@
 <?php
 
-// Enqueue custom styles and load after themes
-require_once( get_stylesheet_directory() . '/includes/gci_styles_enqueue.php');
+
 
 //Removed Woocommerce functionality
 require_once( get_stylesheet_directory() . '/includes/gci_woocommerce_removals.php');
@@ -23,7 +22,8 @@ require_once( get_stylesheet_directory() . '/includes/single_column_product_disp
 // Custom GCI Product Table display
 require_once( get_stylesheet_directory() . '/includes/gci_show_product_info.php');
 
-require_once( get_stylesheet_directory() . '/includes/company_taxonomy.php');
+require_once( get_stylesheet_directory() . '/includes/company_taxonomy/company_taxonomy.php');
+require_once( get_stylesheet_directory() . '/includes/company_taxonomy/create_woocommerce_category.php');
 
 // Group Memberships
 require_once( get_stylesheet_directory() . '/includes/user_group_memberships.php');
@@ -38,3 +38,12 @@ require_once( get_stylesheet_directory() . '/includes/shortcodes/list_pmbus_memb
 require_once( get_stylesheet_directory() . '/includes/custom_meta_fields/user_company_meta_field.php');
 
 require_once( get_stylesheet_directory() . '/includes/admin_menu/training_resources/training_resources_page_build.php');
+
+// Enqueue custom styles and load after themes
+require_once( get_stylesheet_directory() . '/includes/gci_styles_enqueue.php');
+
+require_once( get_stylesheet_directory() . '/includes/shortcodes/revolving_slider.php');
+
+require_once( get_stylesheet_directory() . '/includes/shortcodes/revolving_slider.php');
+
+require_once( get_stylesheet_directory() . '/includes/page_template_default.php');

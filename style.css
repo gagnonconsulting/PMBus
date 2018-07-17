@@ -53,7 +53,7 @@ margin: 1em 0;
 
 #gci-product-table {
     width: 100%;
-    border: 1px solid #dddddd;
+    border: 1px solid #777777;
 }
 
 
@@ -64,17 +64,17 @@ tr:nth-child(even) {
 
 .gci-product-table {
     width: 100%;
-    border: 1px solid #dddddd;
+    border: 1px solid #777777;
 }
 
 .gci-product-table-td {
-    border: 1px solid #dddddd;
+    border: 1px solid #777777;
     text-align: left;
     padding: 8px;
 }
 
 .gci-product-table-td tr:nth-child(even) {
-    background-color: #ededed;
+    background-color: #E4DEC6;
 }
 
 @media only screen and (max-width: 900px) {
@@ -108,6 +108,6 @@ tr:nth-child(even) {
   display:none;
 }
 
-.photo {
-  display: none;
+.lwa-title {
+  color: white !important;
 }

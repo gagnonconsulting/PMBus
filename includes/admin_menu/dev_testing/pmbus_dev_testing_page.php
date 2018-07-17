@@ -1,6 +1,15 @@
 <?php
 
 function pmbus_dev_testing_page_build() {
+
+  $users = get_users( array( 'fields' => array( 'ID' ) ) );
+  foreach($users as $user_id){
+    ?><pre><?php
+    print_r(get_user_meta ( $user_id->ID));
+    ?></pre><?php
+  }
+
+
   $status = 'Active';
   ?>
   <div style='padding-top: 10%; padding-right: 6%; padding-left: 3%;'>

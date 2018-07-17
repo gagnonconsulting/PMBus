@@ -39,6 +39,10 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 						<div class="entry-content">
 							<!-- pad content -->
 							<div style='padding-top:2%;'>
+							<?php
+								screen_size();
+							?>
+
 
 								<?php
 								function GetImageUrlsByProductId( $productId){
@@ -70,17 +74,25 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 								?>
 							</div>
 							<?php
+
 							global $wpdb;
 							//-----------Check current custom company field value ******* V
 							//<?php echo get_post_meta($post->ID, 'Company', true);
+
+							$gci_company_id_query = $wpdb->get_results(
+							"
+							SELECT DISTINCT term_id FROM wp_terms WHERE slug = '$company_custom_field'
+							");
+
+							$gci_company_id = $gci_company_id_query[0]->term_id;
 							?>
 							<br>
-							<div style="padding:10%">
+							<div style="padding-left:10%; padding-bottom:5%; padding-right:10%">
 								<?php $gci_featured_products = $wpdb->get_results("
 									SELECT * FROM
 											(
 												SELECT company.object_id, name, slug, parent, terms.term_id FROM
-												(SELECT * FROM wp_term_relationships r WHERE r.term_taxonomy_id = 804) AS company,
+												(SELECT * FROM wp_term_relationships r WHERE r.term_taxonomy_id =".$gci_company_id.") AS company,
 												(SELECT * FROM wp_term_relationships r1) AS category,
 												(SELECT * FROM wp_terms) AS terms,
 												(SELECT * FROM wp_term_taxonomy) AS taxonomy
@@ -101,12 +113,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 							</div>
 							<?php
 
-							$gci_company_id_query = $wpdb->get_results(
-							"
-							SELECT DISTINCT term_id FROM wp_terms WHERE slug = '$company_custom_field'
-							");
 
-							$gci_company_id = $gci_company_id_query[0]->term_id;
 							$parent = $wpdb->get_results(
 								"
 									SELECT * FROM
@@ -132,7 +139,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 								<div style='padding-left:10%; padding-right:10%;'>
 									<p>
 										<h1 style='color:#5C2961'><?= $parent[$pa]->name ?></h1>
-										<hr width="30%" align="left">
+										<hr style="color:#5C2961" width="30%" align="left">
 									</p>
 
 									<?php
@@ -160,7 +167,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 									for ($i = 0; $i < count($gci_company_products_query); $i++) {
 										?>
 
-										<h2 style='color:#EDB062'><?= $gci_company_products_query[$i]->name ?></h2>
+										<h2 style='color:#013087'><?= $gci_company_products_query[$i]->name ?></h2>
 
 										<?php
 										$cat_id = $gci_company_products_query[$i]->term_id;
@@ -207,8 +214,6 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 								<?php
 								continue;
 							}
-						//echo do_shortcode("[products category='$company']");
-						//echo do_shortcode("[products category='$company_custom_field']");
 						?>
 					</article> <!-- .et_pb_post -->
 					<?php

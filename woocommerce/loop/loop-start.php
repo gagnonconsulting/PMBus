@@ -25,6 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 -->
 
 <div style='padding-right:2%'>
-<table class='gci-product-table products-columns-1'>
+<table style="border: 1px solid #777777;"class='gci-product-table products-columns-1'>
 
 <?php

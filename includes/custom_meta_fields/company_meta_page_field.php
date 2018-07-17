@@ -92,6 +92,15 @@ function cd_meta_box_cb( $post ) {
 
         update_usermeta( $user_id, 'membership', $_POST['membership'] );
 
+        if ($membership_status == 'Full-Member'){
+          $u = new WP_User( $user_id );
+          // Remove role
+          $u->remove_role( 'subscriber' );
+
+          // Add role
+          $u->add_role( 'author' );
+        }
+
 
 
       }
