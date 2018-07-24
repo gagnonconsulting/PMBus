@@ -111,6 +111,9 @@ function list_pmbus_members() {
         GROUP BY name;
       "
     );
+    ?>
+    <pre><?php // print_r($members_list) ?></pre>
+    <?php
     $member_data = get_userdata( $custom_term_meta[734] );
     echo $member_data;
     $terms = get_terms( array(
@@ -119,20 +122,22 @@ function list_pmbus_members() {
     ) );
     ?>
 
+
     <input type="text" id="myInput" onkeyup="myFunction();" placeholder="Search Members By Company Name.." title="Type in a name">
     <div class='row'>
       <div>
+          <h1><?php get_field('membership_type', 810); ?></h1>
           <table id='myTable'>
             <tr>
               <th>PMBus Member: </th>
-              <th>Member Info</th>
+              <th>Visit Site:</th>
             </tr>
             <?php
             for($k=0; $k<count($members_list); $k++){
               ?>
               <tr>
                 <td><?= $members_list[$k]->name; ?></td>
-                <td><?= $members_list[$k]->description; ?></td>
+                <td><?= $members_list[$k]->term_id;?></td>
               </tr>
               <?php
             }

@@ -1,8 +1,15 @@
 <?php
 
-function pmbus_dev_testing_page_build() {
 
-  $users = get_users( array( 'fields' => array( 'ID' ) ) );
+
+
+
+
+
+
+
+
+/*  $users = get_users( array( 'fields' => array( 'ID' ) ) );
   foreach($users as $user_id){
     ?><pre><?php
     print_r(get_user_meta ( $user_id->ID));
@@ -44,10 +51,10 @@ function pmbus_dev_testing_page_build() {
 
       ?>
       <pre>
-        <?php /** print_r($uarray); */ ?>
+        <?php /** print_r($uarray); ?>
       </pre>
   </div>
   </div>
   <?php
 
-}
+} */

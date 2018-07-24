@@ -1,33 +1,61 @@
 <?php
+function create_woo_product_cat() {
 
-/* Pulls all woocommerce companies
+  global $wpdb;
+  // Pulls all woocommerce Company Product Categories
+  $woo_products = $wpdb->get_results(
+    "
+    SELECT * FROM `wp_terms` r, wp_term_taxonomy tx
+    WHERE tx.parent = 667 and tx.taxonomy = 'product_cat'
+    AND tx.term_taxonomy_id = r.term_id
+    GROUP BY name
+    "
+  );
+  ?>
+  <pre><?php // print_r($woo_products); ?></pre>
+  <?php
 
-SELECT * FROM `wp_terms` r, wp_term_taxonomy tx
-WHERE tx.parent = 667 and tx.taxonomy = 'product_cat'
-AND tx.term_taxonomy_id = r.term_id
-GROUP BY name
+  // Select all Companies taxonomy terms
+  $companies = $wpdb->get_results(
+    "
+    SELECT slug FROM `wp_terms` t, `wp_term_taxonomy` x
+    WHERE x.term_taxonomy_id = t.term_id
+    AND taxonomy = 'companies'
+    GROUP BY name
+    "
+  );
+  ?>
+  <pre><?php // print_r($companies); ?></pre>
+  <?php
 
-*/
 
-// insert stuff into description field of taxonomy
-function create_product_category( $term_id, $tt_id, $taxonomy ){
+  for($i=0; $i<count($woo_products); $i++){
 
-    if ( $taxonomy === 'companies' ){
+    $woo_slug = $woo_products[$i]->slug;
+    $exists = 'n';
 
-         $tax_name = get_term_by('id', $term_id, 'companies');
-         $term = get_term( $id, $taxonomy );
-         $slug = $term->slug;
+    for($k=0; $k<count($companies); $k++){
+      if('company-' . $companies[$k]->slug .'' == $woo_slug){
+        $exists = 'y';
+      }
+    }
 
-         wp_insert_term(
-           $tax_name, // the term
-           'product_cat', // the taxonomy
-           array(
-             'description'=> '',
-             'slug' => $slug,
-             'parent' => '667'
-           )
-          );
-     }
- }
+    if($exists == 'n'){
+      echo $woo_slug . ' <br> does not exist.<br><br>';
 
-add_action('edited_term', 'create_product_category', 10, 3);
+      wp_insert_term( '' . $companies->name . '', 'product_cat',
+        array(
+        'parent' => 667, // optional
+        'slug' => '' . $woo_slug . '' // optional
+        )
+      );
+    }
+
+    else{
+
+    }
+  }
+
+}
+
+add_action('created_term', 'create_woo_product_cat');

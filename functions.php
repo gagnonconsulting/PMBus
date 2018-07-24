@@ -43,3 +43,5 @@ add_action( 'admin_menu', 'companies_menu_link' );
 
 // Set default page template as member home page
 add_action('add_meta_boxes', 'set_default_page_template', 1);
+
+add_action( 'after_setup_theme', 'example_insert_category' );

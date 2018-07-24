@@ -62,28 +62,21 @@ function cd_meta_box_cb( $post ) {
   function user_membership_field( $user ) {
     $membership_status = get_the_author_meta( 'membership', $user->ID);
 
-
-
     ?>
     <table class="form-table">
       <tr>
         <th>
-          <label for="Membership Type"><?php _e('PMBus User Type'); ?>
-          </label></th>
-          <td><span class="description"></span><br>
-            <label><input type="radio" name="membership" <?php if ($membership_status == 'Full-Member-Admin' ) { ?>checked="checked"<?php }?> value="Full-Member-Admin">Full Member Admin<br /></label>
-            <label><input type="radio" name="membership" <?php if ($membership_status == 'Full-Member' ) { ?>checked="checked"<?php }?> value="Full-Member">Full Member<br /></label>
-            <label><input type="radio" name="membership" <?php if ($membership_status == 'Tools-Member' ) { ?>checked="checked"<?php }?> value="Tools-Member">Tools Member<br /></label>
-          </td>
-
-        </tr>
-
-
-
-
-        </table>
-        <?php
-      }
+          <label for="Membership Type"><?php _e('PMBus User Type'); ?></label>
+        </th>
+        <td><span class="description"></span><br>
+          <label><input type="radio" name="membership" <?php if ($membership_status == 'Full-Member-Admin' ) { ?>checked="checked"<?php }?> value="Full-Member-Admin">Full Member Admin<br /></label>
+          <label><input type="radio" name="membership" <?php if ($membership_status == 'Full-Member' ) { ?>checked="checked"<?php }?> value="Full-Member">Full Member<br /></label>
+          <label><input type="radio" name="membership" <?php if ($membership_status == 'Tools-Member' ) { ?>checked="checked"<?php }?> value="Tools-Member">Tools Member<br /></label>
+        </td>
+      </tr>
+    </table>
+    <?php
+  }
 
 
       function my_save_custom_user_profile_fields( $user_id ) {

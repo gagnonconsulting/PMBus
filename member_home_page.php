@@ -39,10 +39,6 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 						<div class="entry-content">
 							<!-- pad content -->
 							<div style='padding-top:2%;'>
-							<?php
-								screen_size();
-							?>
-
 
 								<?php
 								function GetImageUrlsByProductId( $productId){
@@ -108,7 +104,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 									<?php
 										if($gci_featured_products != null){ ?>
 											<h1>Featured Products</h1><br> <?php
-											echo do_shortcode('[products limit="3" category="'.$company_custom_field.'" visibility="featured"]');
+											echo do_shortcode('[products limit="4" category="'.$company_custom_field.'" visibility="featured"]');
 										}?>
 							</div>
 							<?php

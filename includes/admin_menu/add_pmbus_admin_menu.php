@@ -32,14 +32,14 @@ function add_pmbus_admin_menu(){
 			 'dashicons-admin-tools', // Icon that displays next to menu item
 				3);
 
-	add_menu_page(
+	/* add_menu_page(
    'PMBus Admin Settings',
   	'Training Resources',
   	 'manage_options',
   		'training_recourses',
   		 'training_resources_page_build', // Function that is called to build 'PMBus' Page
   			'dashicons-media-video', // Icon that displays next to menu item
-  			 99);
+  			 99); */
 }
 
 
