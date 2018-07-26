@@ -54,6 +54,7 @@ margin: 1em 0;
 #gci-product-table {
     width: 100%;
     border: 1px solid #777777;
+    line-height: 0px;
 }
 
 
