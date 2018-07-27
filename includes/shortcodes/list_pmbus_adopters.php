@@ -1,5 +1,5 @@
 <?php
-function list_pmbus_members() {
+function list_pmbus_adopters() {
 
   $pmbus_members_list='';
 
@@ -7,7 +7,8 @@ function list_pmbus_members() {
   global $wpdb;
   ?>
   <div class='one' style='background-image:url(""); background-size:94%; padding-right: 6%; padding-left: 3%;'>
-    <h2>PMBus Members</h2>
+    <h2>PMBus® Adopter List</h2>
+    <h5> (For a list of all SMIF member companies, see the <a style='color: #234F92' href='http://pmbus.staging.wpengine.com/members-directory/'>SMIF Members List</a>)</h5>
   </div>
   <div class='two' style='background-size:94%; padding-right: 6%; padding-left: 3%;'>
     <center><h2>PMBus Members</h2></center>
@@ -130,10 +131,7 @@ function list_pmbus_members() {
           <table id='myTable'>
             <tr>
               <th>PMBus Member: </th>
-
-
-
-              <th>Membership Type</th>
+              <th>Additional Info:</th>
             </tr>
             <?php
             for($k=0; $k<count($members_list); $k++){
@@ -143,31 +141,38 @@ function list_pmbus_members() {
                 $loop_member_id = $members_list[$k]->term_id;
 
                 $loop_url =
-                "
-                SELECT * FROM `wp_options`
-                WHERE option_name = 'companies_";
-                $loop_url .= $loop_member_id;
-                $loop_url .=  "_company_website_url'
-                ";
-                $loop_url_query = $wpdb->get_results($loop_url);
+                  "
+                  SELECT * FROM `wp_options`
+                  WHERE option_name = 'companies_";
+                  $loop_url .= $loop_member_id;
+                  $loop_url .=  "_company_website_url'
+                  ";
+                  $loop_url_query = $wpdb->get_results($loop_url);
                 $companies_url = $loop_url_query[0]->option_value;
-                ?>
 
-                <td><a target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
-
-                <?php
-
+                $loop_info =
+                  "
+                  SELECT * FROM `wp_options`
+                  WHERE option_name = 'companies_";
+                  $loop_info .= $loop_member_id;
+                  $loop_info .=  "_additional_information'
+                  ";
+                $loop_info_query = $wpdb->get_results($loop_info);
 
                 $loop_member =
-                "
-                SELECT * FROM `wp_options`
-                WHERE option_name = 'companies_";
-                $loop_member .= $loop_member_id;
-                $loop_member .=  "_membership_type'
-                ";
+                  "
+                  SELECT * FROM `wp_options`
+                  WHERE option_name = 'companies_";
+                  $loop_member .= $loop_member_id;
+                  $loop_member .=  "_membership_type'
+                  ";
                 $loop_query = $wpdb->get_results($loop_member);
-                ?>
-                <td><?= $loop_query[0]->option_value; ?></td>
+
+                if($loop_query[0]->option_value = 'Adopter'){
+                  ?>
+                  <td><a target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
+                  <td><?= $loop_info_query[0]->option_value; ?></td><?php
+                } ?>
               </tr>
               <?php
             }
@@ -204,4 +209,4 @@ function list_pmbus_members() {
   $pmbus_members_list = ob_get_clean();
   return $pmbus_members_list;
 }
-add_shortcode('list_members', 'list_pmbus_members');
+add_shortcode('list_adopters', 'list_pmbus_adopters');

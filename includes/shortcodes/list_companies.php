@@ -25,7 +25,7 @@ function gci_list_companies() {
     "
   );
   ?>
-  <div style='width:80%; background-image:url("http://localhost:8888/divi_child_pmbus/wp-content/uploads/2018/05/PMBus-Banner.jpeg;"); background-size:100%;'>
+  <div style='width:80%; background-image:url("http://localhost:8889/divi_child_pmbus/wp-content/uploads/2018/05/PMBus-Banner.jpeg;"); background-size:100%;'>
     <center><h2 style='margin-left:-30%;'>Company <br class='rwd-break'>Products <br>Directory:</h2></center>
   </div>
   <hr align='left' width='80%'>

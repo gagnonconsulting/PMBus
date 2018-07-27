@@ -1,5 +1,7 @@
 <?php
 
+// Used to make the revolving reel of logos on home page scale to the browser size
+
 function screen_size(){
 
     session_start();

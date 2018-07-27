@@ -33,6 +33,7 @@ require_once( get_stylesheet_directory() . '/includes/shortcodes/products_by_cat
 require_once( get_stylesheet_directory() . '/includes/shortcodes/list_companies.php');
 // List active PMBus Members [Companies taxonomy] shortcode
 require_once( get_stylesheet_directory() . '/includes/shortcodes/list_pmbus_members.php');
+require_once( get_stylesheet_directory() . '/includes/shortcodes/list_pmbus_adopters.php');
 
 // Custom User Meta 'Company'
 require_once( get_stylesheet_directory() . '/includes/custom_meta_fields/user_company_meta_field.php');

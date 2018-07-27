@@ -1,10 +1,35 @@
-PMBus Theme Development
+commit aa3662cf312555b779e50e72397b13c19fee0e80
+Author: Tyler Giordani <tgiordani567@gmail.com>
+Date:   Thu Jul 26 13:04:30 2018 -0400
+
+    Updated the default page template for new pages to be set to member_home_page.php
+    Resolved the issues where it was set every time a page was being edited
+    Only sets the default template once, if the page template is not defined yet
+
+Commit_Log [07-26-18].txt
+includes/members_pages/page_template_default.php
+includes/members_pages/set_parent_default.php
+screenshot.png
+style.css
 
 commit 487d36f116238de04af62b64a8e5d627d7ecde10
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Tue Jul 24 12:27:17 2018 -0400
 
-    Scrolling logos on home page is now responsive to the screensize of the browser
+    Scrolling logos on home page is now responsive
+
+functions.php
+includes.php
+includes/admin_menu/add_pmbus_admin_menu.php
+includes/admin_menu/dev_testing/pmbus_dev_testing_page.php
+includes/company_taxonomy/create_woocommerce_category.php
+includes/custom_meta_fields/company_meta_page_field.php
+includes/members_pages/page_template_default.php
+includes/members_pages/set_parent_default.php
+includes/shortcodes/list_pmbus_members.php
+includes/shortcodes/revolving_slider.php
+member_home_page.php
+member_home_page[backup].php
 
 commit 327b55370ce46d0085567fab1b6e5c9fb50657aa
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -12,11 +37,32 @@ Date:   Tue Jul 17 16:20:51 2018 -0400
 
     Added Custom meta to Companies taxonomy as well as setting default page template to member home page for new page creation process to be easier
 
+basic-page-template.php
+functions.php
+includes.php
+includes/admin_menu/dev_testing/pmbus_dev_testing_page.php
+includes/company_taxonomy/company_taxonomy.php
+includes/company_taxonomy/create_woocommerce_category.php
+includes/custom_meta_fields/company_meta_page_field.php
+includes/gci_show_product_info.php
+includes/page_template_default.php
+includes/shortcodes/revolving_slider.php
+member_home_page.php
+screenshot.png
+style.css
+woocommerce/loop/loop-start.php
+
 commit 684c2785f16d9c4cdad73d02583506e0aaf6fcc4
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu Jul 12 12:48:50 2018 -0400
 
     Featured product display on member home page, if there are none it does not display header as well
+
+includes.php
+includes/admin_menu/add_pmbus_admin_menu.php
+includes/admin_menu/training_resources/training_resources_page_build.php
+includes/gci_show_product_info.php
+member_home_page.php
 
 commit 53e703e1340f3e4d6a1f78effcb1c89a44ab6574
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -24,11 +70,20 @@ Date:   Thu Jul 5 15:32:26 2018 -0400
 
     Company taxonomy edits, user retrieval for later one click disable function [currently on ppmbus dev testing page]
 
+includes/admin_menu/dev_testing/pmbus_dev_testing_page.php
+style.css
+
 commit 14208bba56248694aca1964e18a319dc8f182e48
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Tue Jul 3 11:06:57 2018 -0400
 
     Cleaning up site after demonstration
+
+includes/admin_menu/add_pmbus_admin_menu.php
+includes/admin_menu/dev_testing/pmbus_dev_testing_page.php
+includes/admin_menu/pmbus_members_page_build.php
+member_home_page.php
+style.css
 
 commit 60ff433e1bbec4a46d9d7bcf0c2d354b97926ada
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -36,11 +91,17 @@ Date:   Thu Jun 21 12:42:12 2018 -0400
 
     New theme image / minor color changes
 
+screenshot.png
+style.css
+
 commit 385426afaf296aecc25f69e4d02f797524d70970
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Wed Jun 20 15:07:55 2018 -0400
 
     Test push
+
+includes/admin_menu/pmbus_members_page_build.php
+member_home_page.php
 
 commit b34a06210fe6697d7c9fc4e24966485d61f71c53
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -48,11 +109,31 @@ Date:   Wed Jun 20 13:19:13 2018 -0400
 
     Cleaned up code, got rid of trailing </divs> and fixed indentation + padding on template pages
 
+functions.php
+includes.php
+includes/admin_menu/add_pmbus_admin_menu.php
+includes/admin_menu/dev_testing/company_products_by_category.php
+includes/admin_menu/dev_testing/pmbus_dev_testing.php
+includes/admin_menu/dev_testing/pmbus_dev_testing_page.php
+includes/admin_menu/dev_testing/queries/sql_db_queries.sql
+includes/admin_menu/groups_users_list_members.php
+includes/custom_meta_fields/company_meta_page_field.php
+includes/custom_meta_fields/company_meta_page_field[backup].php
+includes/custom_meta_fields/user_company_meta_field.php
+includes/gci_show_product_info.php
+includes/gci_styles_enqueue.php
+includes/members_page_build/page_header.php
+includes/shortcodes/products_by_category.php
+member_home_page.php
+members_directory.php
+
 commit d1a7ec4153423bbd32f0d50b7cb3fa53820d1446
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Wed Jun 20 09:04:35 2018 -0400
 
     Minor styling for members home page build
+
+includes/admin_menu/pmbus_members_page_build.php
 
 commit 9391037b3a3ed65c3a94bb1994fff3c2a0aa92a2
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -60,11 +141,28 @@ Date:   Tue Jun 19 16:06:22 2018 -0400
 
     Updated directory pages with products by company, products by category and all PMBus membersand as well as navigation bar
 
+includes.php
+includes/admin_menu/dev_testing/pmbus_dev_testing.php
+includes/shortcodes/list_companies.php
+includes/shortcodes/list_pmbus_members.php
+member_home_page.php
+member_home_page[backup].php
+members_directory.php
+
 commit b2818fb825aea2f6194027bf4428a71fb73d87c8
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Mon Jun 18 16:19:23 2018 -0400
 
     Product Company Directory page and shortcodes directory
+
+includes.php
+includes/gci_show_product_info.php
+includes/members_page_build/page_header.php
+includes/products_by/products_by_category.php
+includes/shortcodes/list_companies.php
+member_home_page.php
+member_home_page[backup].php
+style.css
 
 commit 1db963b439fefca1dd86552f69da1d13f7abb17b
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -72,11 +170,19 @@ Date:   Thu Jun 14 14:49:43 2018 -0400
 
     Fixed padding on products by category page of table display
 
+includes/products_by/products_by_category.php
+
 commit 97081a1f003abf7178070428f94a8264e4d3c255
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu Jun 14 14:45:55 2018 -0400
 
     Removed text on shop page [showing single results] and sory by dropdown, also fixed padding on all shop page displays of products to be full screen
+
+includes/gci_woocommerce_removals.php
+member_home_page.php
+member_home_page[backup].php
+style.css
+woocommerce/loop/loop-start.php
 
 commit 3375c9147fbbfc1509c4743b83523cb9b1028cd9
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -84,11 +190,19 @@ Date:   Wed Jun 13 16:55:55 2018 -0400
 
     company dropdown for pages to print products of said company
 
+includes/company_meta_page_field.php
+member_home_page.php
+member_home_page[backup].php
+
 commit bdf2f927ad8c5fb18b5d5118bc9694048eb35bbe
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Wed Jun 13 13:30:50 2018 -0400
 
     Added dropdown to select company attribute for pages to display products BASED on current product categories for products
+
+includes/company_meta_page_field.php
+includes/company_meta_page_field[backup].php
+member_home_page.php
 
 commit c31abe7e486dfc852b22153718052f679053871f
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -96,11 +210,20 @@ Date:   Wed Jun 13 11:18:57 2018 -0400
 
     Display all products per company by category under its parent category
 
+includes.php
+includes/admin_menu/dev_testing/pmbus_dev_testing.php
+includes/admin_menu/dev_testing/pmbus_dev_testing[backup].php
+includes/company_meta_page_field.php
+
 commit 607cb1ea535f4d0f6c314d6a20708b6393b4e149
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Tue Jun 12 16:43:16 2018 -0400
 
     pull products based on company, and display under corresponding [Child] category title. Workin on wrapping the functionality in a loop that checks what its parent is. Also got a working query or parent categories of products by company. Working on linking the two
+
+includes/admin_menu/dev_testing/pmbus_dev_testing.php
+includes/admin_menu/dev_testing/sql_queries.sql
+member_home_page.php
 
 commit fe4dcb931afe8dfff863beb6c7eef13fa303d074
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -108,11 +231,20 @@ Date:   Mon Jun 11 11:45:56 2018 -0400
 
     Dynamically pull products on member page by ID using custom product query, Also added sql file to store all working queries in admin directory
 
+includes/admin_menu/dev_testing/company_products_by_category.php
+includes/admin_menu/dev_testing/sql_queries.sql
+member_home_page.php
+
 commit 4fc8ae9c88b2579301477560da72a5129699cfc6
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Tue Jun 5 16:16:29 2018 -0400
 
     Custom query to find products in category and a specified company testing
+
+includes/admin_menu/add_pmbus_admin_menu.php
+includes/admin_menu/dev_testing/company_products_by_category.php
+includes/admin_menu/dev_testing/pmbus_dev_testing.php
+member_home_page.php
 
 commit f59a5a07ab2e59b65e41031055c511a344570131
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -120,11 +252,29 @@ Date:   Tue Jun 5 10:32:36 2018 -0400
 
     Added dev testing page to admin area of site
 
+functions.php
+includes.php
+includes/admin_menu/add_pmbus_admin_menu.php
+includes/admin_menu/dev_testing/pmbus_dev_testing.php
+
 commit 64329c2ef852157c7f948a93ea2bf6e2ef4edaa3
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Tue Jun 5 09:52:22 2018 -0400
 
     Organized output of products by category with titles
+
+functions.php
+includes.php
+includes/admin_menu/pmbus_members_page_build.php
+includes/gci_show_product_info.php
+includes/products_by/products_by_category.php
+member_home_page.php
+style.css
+woocommerce/archive-product.php
+woocommerce/content-product.php
+woocommerce/includes/class-wp-shop-customizer
+woocommerce/loop/loop-end.php
+woocommerce/loop/loop-start.php
 
 commit 29550af3a90f863a3929bfdb9339384214d6a80f
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -132,11 +282,16 @@ Date:   Wed May 30 11:25:44 2018 -0400
 
     Updated woocommerce outdated content-product.php file
 
+woocommerce/archive-product.php
+woocommerce/content-product.php
+
 commit 915729d0d5b5e589b214298b819ab9abeb91fe0b
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Wed May 30 10:59:39 2018 -0400
 
     Updated plugins - WooCommerce was outdated. Line 19 changed from if ( ! defined( 'ABSPATH' ) ) {exit;} to defined( 'ABSPATH' ) || exit;
+
+woocommerce/archive-product.php
 
 commit 9a693324a034cc92b66fd20737f4aa55ce5cfdb0
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -144,11 +299,15 @@ Date:   Wed May 30 09:45:25 2018 -0400
 
     Styling of active members tables
 
+includes/admin_menu/pmbus_members_page_build.php
+
 commit 46142c218a18c658361651c2072513bb70294c45
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Tue May 29 13:23:32 2018 -0400
 
     Search bar now searches both tables of users on PMBus Members page
+
+includes/admin_menu/pmbus_members_page_build.php
 
 commit e75e0581d89973dee5f341920bec26ea6c29dd8c
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -156,11 +315,18 @@ Date:   Tue May 29 13:22:48 2018 -0400
 
     Cusomizable admin dashboard functionality. Restrict certain tabs for specified users
 
+includes/admin_menu/add_pmbus_admin_menu.php
+
 commit 99c9e7e9da3774d49a521ad0d45047540d0f5a67
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu May 24 11:47:36 2018 -0400
 
     Custom wordpress dashboard function for PMBus admin (Clyde) to only have menu links for relevant funtionality
+
+functions.php
+includes.php
+includes/admin_menu/.DS_Store
+includes/admin_menu/add_pmbus_admin_menu.php
 
 commit 509df2938a29eb3b028fa29ec735cffbaec5b388
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -168,11 +334,29 @@ Date:   Tue May 22 16:48:06 2018 -0400
 
     Added child theme screenshot
 
+screenshot.png
+
 commit c23c0629acb8ffc46ca0d014dc7393ae687dca95
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Tue May 22 16:33:34 2018 -0400
 
     Major update to bring over woocommerce functionality changesand file format restructuring
+
+.DS_Store
+functions.php
+functions[original].php
+includes/admin_menu/groups_users_list_members.php
+includes/company_taxonomy.php
+includes/user_group_memberships.php
+member_home_page.php
+style.css
+woocommerce/archive-product.php
+woocommerce/content-product.php
+woocommerce/includes/class-wp-shop-customizer
+woocommerce/loop/loop-end.php
+woocommerce/loop/loop-start.php
+woocommerce/taxonomy-product_cat.php
+woocommerce/wc-template-functions.php
 
 commit 5a1c15bf66735849cad62e91fc85fc5cc2175c98
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -180,11 +364,15 @@ Date:   Mon May 21 14:51:55 2018 -0400
 
     Added custom meta fields for Companies taxonomy Function file
 
+includes/company_taxonomy.php
+
 commit 1f6cd920e6609914aa3bd05b3af0ff7b71197257
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Mon May 21 14:50:59 2018 -0400
 
     Added custom meta fields for Companies taxonomy
+
+functions[live].php
 
 commit aa3ac75806f27a2d711c37661ffc03c8c9f12beb
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -192,11 +380,28 @@ Date:   Mon May 21 11:45:52 2018 -0400
 
     Cleaned up functions.php and created a structure for custom functions and data that is much more scalable and easier to follow/edit in the future.
 
+functions[live].php
+functions[original].php
+includes.php
+includes/admin_menu/add_pmbus_admin_menu.php
+includes/admin_menu/groups_users_list_memberships.php
+includes/admin_menu/pmbus_admin_add_new_member.php
+includes/admin_menu/pmbus_members_page_build.php
+includes/company_taxonomy.php
+includes/gci_show_product_info.php
+includes/gci_styles_enqueue.php
+includes/gci_woocommerce_removals.php
+includes/single_column_product_display.php
+includes/user_custom_fields.php
+includes/user_group_membership.php
+
 commit bf474c73487b103b6b0080954a65dca0c71c549f
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu May 17 11:08:09 2018 -0400
 
     Updated format and added user_group_memberships function
+
+functions.php
 
 commit cc2cfb662d50fde5392cfbb800ed6791a75f7349
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -204,11 +409,15 @@ Date:   Thu May 17 11:03:43 2018 -0400
 
     Add functions to wordpress build for custom fields
 
+functions.php
+
 commit d3cbdfbcab16cd5cbab1d69d9b21fafc69838d6f
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu May 17 11:02:14 2018 -0400
 
     Save membership field data upon user create
+
+functions.php
 
 commit fcdcb8edde14fc8a136c2052ff3634f375ea5321
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -216,11 +425,15 @@ Date:   Thu May 17 11:01:39 2018 -0400
 
     Added user membership metadata to users (Full member, tools ect)
 
+functions.php
+
 commit 07a33ebd05c29156ab60face28a3f9e90e48682d
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu May 17 10:59:42 2018 -0400
 
     Create new user upon button click and pass it data: Later to be filled with input values and text boxes
+
+functions.php
 
 commit 3041844c64e23cb099dabd843e0d4c74ffca4b8a
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -228,11 +441,15 @@ Date:   Thu May 17 10:57:52 2018 -0400
 
     Created function to build custom PMBus admin dashboard page with users listed in responsive table
 
+functions.php
+
 commit d4636d6e5d71921e2137b5a9932acf5d959d5552
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu May 17 10:56:30 2018 -0400
 
     Added custom PMBus admin menu bar and buttons on left
+
+functions.php
 
 commit 0b1a47d53ea07a63f1e80d519f2dc9c3e628ec23
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -240,11 +457,15 @@ Date:   Thu May 17 10:55:16 2018 -0400
 
     Save data upon press of update user
 
+functions.php
+
 commit 45fe097e8bfb36e40886b55b0a8c4fea04b0878d
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu May 17 10:54:44 2018 -0400
 
     Added function to store input values as company
+
+functions.php
 
 commit 2a75738dbbe17f22ceccc4ef17b8863823e24cb9
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -252,11 +473,15 @@ Date:   Thu May 17 10:53:27 2018 -0400
 
     Added custom company field and meta box for entry to user metadata
 
+functions.php
+
 commit ac4b5352cd5dadc752df8e9efcad0bc61497ceac
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu May 17 10:50:58 2018 -0400
 
     Added additional styling enqueue and reformatted the functions
+
+functions.php
 
 commit 1b040234163f7a502080447992677cffb9f8d679
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -264,11 +489,15 @@ Date:   Thu May 17 10:14:52 2018 -0400
 
     Added child style.css to be loaded last upon site build
 
+functions.php
+
 commit 3941ade67c4d473d0fc1588024b15bc1b84584a6
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu May 17 10:12:22 2018 -0400
 
     Create custom GCI product table display and add action to hook [woocommerce_after_shop_loop_item_title]
+
+functions.php
 
 commit 7e74537dba2360ce26248e5ef618e5d38cc90c1b
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -276,11 +505,15 @@ Date:   Thu May 17 10:10:37 2018 -0400
 
     Remove product thumbnails and titles from being shown
 
+functions.php
+
 commit b3fd16010e619dbae8b1b28eab9aa4508aa43d0a
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu May 17 10:09:28 2018 -0400
 
     Products display in one column rather than 3
+
+functions.php
 
 commit 3dac0e65c75f0afec35f4a60d6b78668b88dc4d1
 Author: Tyler Giordani <tgiordani567@gmail.com>
@@ -288,8 +521,12 @@ Date:   Thu May 17 10:07:42 2018 -0400
 
     Removed similar products function
 
+functions.php
+
 commit 9ca3727ce832bb3739361cb0ffbcdd7d52d4ae88
 Author: Tyler Giordani <tgiordani567@gmail.com>
 Date:   Thu May 17 10:05:29 2018 -0400
 
     Added child theme style.css enqueue to wordpress build
+
+functions.php
