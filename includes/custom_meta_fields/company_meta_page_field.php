@@ -6,6 +6,11 @@ function cd_meta_box_add_company() {
 function cd_meta_box_cb( $post ) {
 
   global $wpdb;
+  $woo_commerce_company = $wpdb->get_results("
+  SELECT * FROM `wp_terms` WHERE name = 'Company'
+  ");
+  $woo_commerce_company_id = $woo_commerce_company[0]->term_id;
+
   $cquery = $wpdb->get_results
   ("
   SELECT * FROM
@@ -14,7 +19,7 @@ function cd_meta_box_cb( $post ) {
     (SELECT name, slug FROM wp_terms
     WHERE slug LIKE 'company-%') AS term,
     (SELECT * FROM wp_term_taxonomy
-    WHERE parent = 667) AS tax
+    WHERE parent = ".$woo_commerce_company_id.") AS tax
     ) AS t2
     GROUP BY name
     ");

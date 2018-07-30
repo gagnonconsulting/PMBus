@@ -1,60 +1,47 @@
 <?php
 
+function pmbus_dev_testing_page_build() {
 
+  global $wpdb;
+  // Pulls all woocommerce Company Product Categories
+  $companies = $wpdb->get_results(
+    "
+    SELECT slug FROM `wp_terms` t, `wp_term_taxonomy` x
+    WHERE x.term_taxonomy_id = t.term_id
+    AND taxonomy = 'companies'
+    GROUP BY name
+    "
+  );
 
-
-
-
-
-
-
-
-/*  $users = get_users( array( 'fields' => array( 'ID' ) ) );
-  foreach($users as $user_id){
-    ?><pre><?php
-    print_r(get_user_meta ( $user_id->ID));
-    ?></pre><?php
-  }
-
-
-  $status = 'Active';
+  $woo_products = $wpdb->get_results(
+    "
+    SELECT * FROM `wp_terms` r, wp_term_taxonomy tx
+    WHERE tx.parent = 667 AND tx.taxonomy = 'product_cat' AND term_taxonomy_id != 863
+    AND tx.term_taxonomy_id = r.term_id
+    GROUP BY name
+    "
+  );
   ?>
-  <div style='padding-top: 10%; padding-right: 6%; padding-left: 3%;'>
-    <?php
-    $args = array(
-      'meta_query' => array(
-        array(
-          'key' => 'user_company',
-          'compare' => 'EXISTS'
-        ),
-      )
-    );
 
-      $wp_user_search = new WP_User_Query( array( 'role' => '', 'fields' => 'all_with_meta') );
-      $agents = $wp_user_search->get_results();
+  <pre><?php // print_r($companies); ?></pre>
+  <pre><?php // print_r($woo_products); ?></pre>
 
-      $uarray = array();
-      $i = 0;
-      foreach ( $agents as $agent ) {
+  <?php  // Go through each Company that exists
+  for($i=0; $i<count($companies); $i++){
+    $company_slug = $companies[$i]->slug;
 
-        echo $uarray[$i]->Username = $agent->user_login;
-        ?><br><?php
-        $uarray[$i]->ID = $agent->ID;
-        $uarray[$i]->Company = $agent->user_company;
-        echo $uarray[$i]->Role = $agent->roles[0];
-        ?><br><?php
-        ?>
-        <button>Disable</button>
-        <br><br><?php
-        $i++;
+    for($k=0; $k<count($woo_products); $k++){
+      $woo_cat_slug = $woo_products[$k]->slug;
+      $exists = 'n';
+
+      if ($woo_cat_slug == 'company-' . $company_slug) {
+        $exists = 'y';
       }
 
-      ?>
-      <pre>
-        <?php /** print_r($uarray); ?>
-      </pre>
-  </div>
-  </div>
-  <?php
+      else {
+        echo $woo_cat_slug . ' does not exist.';
+      }
+    }
+  }
 
-} */
+}

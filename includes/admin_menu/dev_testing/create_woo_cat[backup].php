@@ -1,5 +1,6 @@
 <?php
-function create_woo_product_cat() {
+
+function pmbus_dev_testing_page_build() {
 
   global $wpdb;
   // Pulls all woocommerce Company Product Categories
@@ -60,4 +61,4 @@ function create_woo_product_cat() {
 
 }
 
-add_action('created_term', 'create_woo_product_cat');
+// add_action('created_term', 'create_woo_product_cat');

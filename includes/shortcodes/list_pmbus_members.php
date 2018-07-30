@@ -6,14 +6,14 @@ function list_pmbus_members() {
   ob_start();
   global $wpdb;
   ?>
-  <div class='one' style='background-image:url(""); background-size:94%; padding-right: 6%; padding-left: 3%;'>
+  <div class='one' style='background-image:url(""); background-size:94%;'>
     <h2>PMBus Members</h2>
   </div>
-  <div class='two' style='background-size:94%; padding-right: 6%; padding-left: 3%;'>
+  <div class='two' style='background-size:94%;'>
     <center><h2>PMBus Members</h2></center>
   </div><br><br>
 
-  <div style='padding-right: 6%; padding-left: 3%;'>
+  <div style=''>
 
     <style>
       * {

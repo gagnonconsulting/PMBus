@@ -23,7 +23,6 @@ require_once( get_stylesheet_directory() . '/includes/single_column_product_disp
 require_once( get_stylesheet_directory() . '/includes/gci_show_product_info.php');
 
 require_once( get_stylesheet_directory() . '/includes/company_taxonomy/company_taxonomy.php');
-require_once( get_stylesheet_directory() . '/includes/company_taxonomy/create_woocommerce_category.php');
 
 // Group Memberships
 require_once( get_stylesheet_directory() . '/includes/user_group_memberships.php');

@@ -6,6 +6,11 @@ function gci_list_companies() {
   ob_start();
   global $wpdb;
 
+  $woo_commerce_company = $wpdb->get_results("
+  SELECT * FROM `wp_terms` WHERE name = 'Company'
+  ");
+  $woo_commerce_company_id = $woo_commerce_company[0]->term_id;
+
   $companies_list = $wpdb->get_results(
     "
     SELECT * FROM
@@ -20,7 +25,7 @@ function gci_list_companies() {
           AND terms.name != 'featured' AND taxonomy.term_taxonomy_id = terms.term_id
           AND taxonomy.taxonomy NOT LIKE 'pa_company'
           ) as categories
-          WHERE parent = 667
+          WHERE parent = ".$woo_commerce_company_id."
           GROUP BY name
     "
   );

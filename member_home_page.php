@@ -84,7 +84,14 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 							?>
 							<br>
 							<div style="padding-left:10%; padding-bottom:5%; padding-right:10%">
-								<?php $gci_featured_products = $wpdb->get_results("
+								<?php
+
+								$woo_commerce_company = $wpdb->get_results("
+								SELECT * FROM `wp_terms` WHERE name = 'Company'
+								");
+								$woo_commerce_company_id = $woo_commerce_company[0]->term_id;
+
+								$gci_featured_products = $wpdb->get_results("
 									SELECT * FROM
 											(
 												SELECT company.object_id, name, slug, parent, terms.term_id FROM
@@ -98,7 +105,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 												AND terms.name = 'featured'
 												AND taxonomy.taxonomy NOT LIKE 'pa_company' AND parent != 0
 											) as categories
-                                            WHERE parent=667
+                                            WHERE parent=".$woo_commerce_company_id."
                                             GROUP BY object_id
 									"); ?>
 									<?php
