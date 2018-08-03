@@ -137,7 +137,7 @@ function list_pmbus_members() {
             </tr>
             <?php
             for($k=0; $k<count($members_list); $k++){
-              if($loop_query[0]->option_value != 'Drafted Member'){
+
                 ?>
                 <tr>
                   <?php
@@ -154,7 +154,7 @@ function list_pmbus_members() {
                   $companies_url = $loop_url_query[0]->option_value;
                   ?>
 
-                  <td><a target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
+
 
                   <?php
 
@@ -167,11 +167,13 @@ function list_pmbus_members() {
                   $loop_member .=  "_membership_type'
                   ";
                   $loop_query = $wpdb->get_results($loop_member);
-                  ?>
-                  <td><?= $loop_query[0]->option_value; ?></td>
+                  if($loop_query[0]->option_value !== 'Drafted Member'){
+                    ?>
+                    <td><a target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
+                    <td><?= $loop_query[0]->option_value; ?></td>
                 </tr>
               <?php
-              }  
+              }
             }
             //echo do_shortcode("[groups_users_list_members group_id='8' /]");
             //echo do_shortcode("[groups_users_list_members group_id='4' /]");
