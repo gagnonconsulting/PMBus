@@ -33,7 +33,7 @@ function screen_size(){
     echo $wi;
     echo gettype($width);
     echo $zs; */
-    $wid = .885 * $_SESSION['screen_width'];
+    $wid = .95 * $_SESSION['screen_width'];
     return do_shortcode('
       [ihrss-gallery
         type="WIDGET"
