@@ -1,6 +1,6 @@
 <?php
 function add_pmbus_admin_menu(){
-	add_menu_page(
+/*	add_menu_page(
 	'PMBus Admin Settings',
 	 'PMBus Members',
 	  'manage_options',
