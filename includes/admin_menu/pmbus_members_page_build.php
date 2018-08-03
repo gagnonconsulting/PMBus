@@ -94,10 +94,10 @@ function pmbus_members_page_build() {
     <div class='row'>
       <div style='padding-top: 1%; background-color:#f8f8f8;'>
         <h2 style='text-align:center;'>Manage Full Members &emsp;
-          <a target='_blank' href='http://localhost:8888/divi_child_pmbus/wp-admin/users.php?group_ids%5B0%5D=8'>
+          <a target='_blank' href='http://pmbus.staging.wpengine.com/wp-admin/users.php?group_ids%5B0%5D=8'>
             <button class='btn_members'>PMBus Full Member Admins</button>
           </a>&emsp;
-          <a target='_blank' href='http://localhost:8888/divi_child_pmbus/wp-admin/users.php?group_ids%5B0%5D=4'>
+          <a target='_blank' href='http://pmbus.staging.wpengine.com/wp-admin/users.php?group_ids%5B0%5D=4'>
             <button class='btn_members'>PMBus Full Members</button>
           </a>
         </h2>

@@ -27,7 +27,7 @@ function cd_meta_box_cb( $post ) {
 
     $values = get_post_custom( $post->ID );
     //$text = isset( $values['Company'] ) ? esc_attr( $values['Company'][0] ) : '';
-      //wp_nonce_field( 'company_nonce', 'meta_box_nonce' );
+    //wp_nonce_field( 'company_nonce', 'meta_box_nonce' );
     $selected = isset( $values['Company'] ) ? esc_attr( $values['Company'][0] ) : '';
       wp_nonce_field( 'company_nonce', 'meta_box_nonce' );
     ?>
@@ -64,7 +64,7 @@ function cd_meta_box_cb( $post ) {
     update_post_meta( $post_id, 'Company', wp_kses( $_POST['Company'], $allowed ) );
   }
 
-  function user_membership_field( $user ) {
+  /* function user_membership_field( $user ) {
     $membership_status = get_the_author_meta( 'membership', $user->ID);
 
     ?>
@@ -104,4 +104,4 @@ function cd_meta_box_cb( $post ) {
       }
 
       add_action( 'personal_options_update', 'my_save_custom_user_profile_fields' );
-      add_action( 'edit_user_profile_update', 'my_save_custom_user_profile_fields' );
+      add_action( 'edit_user_profile_update', 'my_save_custom_user_profile_fields' ); */

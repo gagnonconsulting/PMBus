@@ -1,5 +1,5 @@
 <?php
-function add_pmbus_admin_menu(){
+/* function add_pmbus_admin_menu(){
 	add_menu_page(
 	'PMBus Admin Settings',
 	 'PMBus Members',
@@ -7,7 +7,7 @@ function add_pmbus_admin_menu(){
 		 'pmbus_members_page',
 		  'pmbus_members_page_build', // Function that is called to build 'PMBus' Page
 			 'dashicons-id', // Icon that displays next to menu item
-			  3);
+			  3); */
  /* add_submenu_page(
 	 'pmbus_members_page',
 	 'Companies',
@@ -23,14 +23,14 @@ function add_pmbus_admin_menu(){
 		  'add_new_members_slug',
 		  'add_new_members_function');
 			*/
- add_menu_page(
+ /* add_menu_page(
 	'PMBus Admin Settings',
 	 'PMBus Dev Testing',
 	  'manage_options',
 		 'pmbus_dev_page',
 		  'pmbus_dev_testing_page_build', // Function that is called to build 'PMBus' Page
 			 'dashicons-admin-tools', // Icon that displays next to menu item
-				3);
+				3); */
 
 	/* add_menu_page(
    'PMBus Admin Settings',
@@ -40,7 +40,7 @@ function add_pmbus_admin_menu(){
   		 'training_resources_page_build', // Function that is called to build 'PMBus' Page
   			'dashicons-media-video', // Icon that displays next to menu item
   			 99); */
-}
+//}
 
 
 add_action('add_pmbus_admin_menu', 'add_custom_link_into_appearnace_menu');
@@ -83,13 +83,8 @@ if ( $user ) {
 			show_admin_bar( false );
 }
 
-/**
- * @author    Brad Dalton
- * @example   http://wpsites.net/wordpress-admin/add-top-level-custom-admin-menu-link-in-dashboard-to-any-url/
- * @copyright 2014 WP Sites
- */
 function companies_menu_link(){
-  add_menu_page( 'custom menu link', 'Companies', 'manage_options', 'any-url', 'wpsites_custom_menu_link', 'dashicons-admin-site', 3 );
+  add_menu_page( 'custom menu link', 'PMBus Members', 'manage_options', 'any-url', 'wpsites_custom_menu_link', 'dashicons-id', 3 );
 }
 
 function wpsites_custom_menu_link(){
