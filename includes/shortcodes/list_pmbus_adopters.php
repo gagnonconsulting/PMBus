@@ -168,7 +168,7 @@ function list_pmbus_adopters() {
                   ";
                 $loop_query = $wpdb->get_results($loop_member);
 
-                if($loop_query[0]->option_value = 'Adopter'){
+                if($loop_query[0]->option_value == 'PMBus Adopter'){
                   ?>
                   <td><a target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
                   <td><?= $loop_info_query[0]->option_value; ?></td><?php
