@@ -167,12 +167,11 @@ function list_pmbus_members() {
                   $loop_member .=  "_membership_type'
                   ";
                   $loop_query = $wpdb->get_results($loop_member);
-                  ?><pre><?php // print_r($loop_query); ?></pre>
-
+                  ?>
                   <td><?= $loop_query[0]->option_value; ?></td>
                 </tr>
               <?php
-              }
+              }  
             }
             //echo do_shortcode("[groups_users_list_members group_id='8' /]");
             //echo do_shortcode("[groups_users_list_members group_id='4' /]");
