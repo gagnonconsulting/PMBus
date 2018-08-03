@@ -11,3 +11,7 @@ function set_default_page_template() {
     }
 }
 add_action('add_meta_boxes', 'set_page_template_default', 1);
+
+function set_page_template_default() {
+  
+}
