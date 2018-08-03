@@ -93,6 +93,6 @@ function companies_menu_link(){
 }
 
 function wpsites_custom_menu_link(){
-  wp_redirect( 'http://localhost:8889/divi_child_pmbus/wp-admin/edit-tags.php?taxonomy=companies&post_type=page', 301 );
+  wp_redirect( 'http://pmbus.staging.wpengine.com//wp-admin/edit-tags.php?taxonomy=companies&post_type=page', 301 );
 	exit;
 }

@@ -137,39 +137,40 @@ function list_pmbus_members() {
             </tr>
             <?php
             for($k=0; $k<count($members_list); $k++){
-              ?>
-              <tr>
-                <?php
-                $loop_member_id = $members_list[$k]->term_id;
-
-                $loop_url =
-                "
-                SELECT * FROM `wp_options`
-                WHERE option_name = 'companies_";
-                $loop_url .= $loop_member_id;
-                $loop_url .=  "_company_website_url'
-                ";
-                $loop_url_query = $wpdb->get_results($loop_url);
-                $companies_url = $loop_url_query[0]->option_value;
+              if($loop_query[0]->option_value != 'Drafted Member'){
                 ?>
+                <tr>
+                  <?php
+                  $loop_member_id = $members_list[$k]->term_id;
 
-                <td><a target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
+                  $loop_url =
+                  "
+                  SELECT * FROM `wp_options`
+                  WHERE option_name = 'companies_";
+                  $loop_url .= $loop_member_id;
+                  $loop_url .=  "_company_website_url'
+                  ";
+                  $loop_url_query = $wpdb->get_results($loop_url);
+                  $companies_url = $loop_url_query[0]->option_value;
+                  ?>
 
-                <?php
+                  <td><a target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
+
+                  <?php
 
 
-                $loop_member =
-                "
-                SELECT * FROM `wp_options`
-                WHERE option_name = 'companies_";
-                $loop_member .= $loop_member_id;
-                $loop_member .=  "_membership_type'
-                ";
-                $loop_query = $wpdb->get_results($loop_member);
-                ?>
-                <td><?= $loop_query[0]->option_value; ?></td>
-              </tr>
-              <?php
+                  $loop_member =
+                  "
+                  SELECT * FROM `wp_options`
+                  WHERE option_name = 'companies_";
+                  $loop_member .= $loop_member_id;
+                  $loop_member .=  "_membership_type'
+                  ";
+                  $loop_query = $wpdb->get_results($loop_member);
+                  ?>
+                  <td><?= $loop_query[0]->option_value; ?></td>
+                </tr>
+              }  <?php
             }
             //echo do_shortcode("[groups_users_list_members group_id='8' /]");
             //echo do_shortcode("[groups_users_list_members group_id='4' /]");

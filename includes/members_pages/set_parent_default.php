@@ -11,3 +11,7 @@ function wpse_59007_set_default_page_parent( $data )
     }
     return $data;
 }
+
+function example_insert_category(){
+  
+}
