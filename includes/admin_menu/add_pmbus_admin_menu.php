@@ -1,5 +1,5 @@
 <?php
-/* function add_pmbus_admin_menu(){
+function add_pmbus_admin_menu(){
 	add_menu_page(
 	'PMBus Admin Settings',
 	 'PMBus Members',
@@ -40,7 +40,7 @@
   		 'training_resources_page_build', // Function that is called to build 'PMBus' Page
   			'dashicons-media-video', // Icon that displays next to menu item
   			 99); */
-//}
+}
 
 
 add_action('add_pmbus_admin_menu', 'add_custom_link_into_appearnace_menu');
@@ -88,6 +88,6 @@ function companies_menu_link(){
 }
 
 function wpsites_custom_menu_link(){
-  wp_redirect( 'http://pmbus.staging.wpengine.com//wp-admin/edit-tags.php?taxonomy=companies&post_type=page', 301 );
+  wp_redirect( 'http://pmbus.staging.wpengine.com/wp-admin/edit-tags.php?taxonomy=companies&post_type=page', 301 );
 	exit;
 }
