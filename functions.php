@@ -38,3 +38,6 @@ add_action( 'admin_menu', 'companies_menu_link' );
 add_action('add_meta_boxes', 'set_default_page_template', 1);
 
 add_action( 'after_setup_theme', 'example_insert_category' );
+
+// Enable Gravity Forms field label visibility
+add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
