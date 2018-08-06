@@ -171,7 +171,7 @@ function list_pmbus_members() {
 
                   <?php
                   if($loop_query[0]->option_value != 'SMIF Tools Member'){
-                    $member_url = '<a target="_blank" href="http://www.pmbus.staging.wpengine.com/direcotry/companies/' . $members_list[$k]->slug . '">Link</a>';
+                    $member_url = '<a target="_blank" href="http://pmbus.staging.wpengine.com/directory/companies/' . $members_list[$k]->slug . '">Link</a>';
                     ?>
                     <td><?= $member_url; ?></td><?php
                   }
