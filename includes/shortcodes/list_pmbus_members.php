@@ -131,7 +131,7 @@ function list_pmbus_members() {
             <tr>
               <th>PMBus Member: </th>
               <th>Membership Type:</th>
-              <th>Visit Site:</th>
+              <th><center>SMIF Page:</center></th>
             </tr>
             <?php
             for($k=0; $k<count($members_list); $k++){
@@ -150,12 +150,14 @@ function list_pmbus_members() {
                   ";
                   $loop_url_query = $wpdb->get_results($loop_url);
                   $companies_url = $loop_url_query[0]->option_value;
-                  ?>
 
-                  <td><a target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
+                  if($companies_url !== ''){ ?>
+                    <td><a target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td> <?php
+                  }
 
-                  <?php
-
+                  else { ?>
+                    <td><?= $members_list[$k]->name; ?></td> <?php
+                  }
 
                   $loop_member =
                   "
@@ -171,12 +173,12 @@ function list_pmbus_members() {
 
                   <?php
                   if($loop_query[0]->option_value != 'SMIF Tools Member'){
-                    $member_url = '<a target="_blank" href="http://pmbus.staging.wpengine.com/' . $members_list[$k]->slug . '">Link</a>';
+                    $member_url = '<center><a target="_blank" href="http://pmbus.staging.wpengine.com/' . $members_list[$k]->slug . '">Link</a></center>';
                     ?>
                     <td><?= $member_url; ?></td><?php
                   }
                   else { ?>
-                    <td>N/A</td><?php
+                    <td><center>N/A</center></td><?php
                   }
                   ?>
 

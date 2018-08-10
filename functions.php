@@ -22,9 +22,6 @@ add_action( 'save_post', 'cd_meta_box_save_company' );
 add_action( 'admin_menu', 'add_pmbus_admin_menu' );
 
 // Adding custom field creating and saving to update and create new user pages
-add_action( 'show_user_profile', 'user_membership_field' );
-add_action( 'edit_user_profile', 'user_membership_field' );
-add_action( 'user_new_form', 'user_membership_field' );
 add_action( 'personal_options_update', 'my_save_custom_user_profile_fields' );
 add_action( 'edit_user_profile_update', 'my_save_custom_user_profile_fields' );
 add_action( 'user_new_update', 'my_save_custom_user_profile_fields' );
@@ -41,3 +38,14 @@ add_action( 'after_setup_theme', 'example_insert_category' );
 
 // Enable Gravity Forms field label visibility
 add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+
+function et_get_footer_credits() {
+  $developed_by = 'Website by <a href="https://gagnonconsulting.com" target="_blank">Gagnon Consulting, Inc.</a>'; // Developer info
+ // $terms = '<br><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-and-conditions">Terms and Conditions</a>'; // Privacy and Terms of Condition links (comment to remove)
+  $beg_year = 2017;
+  $cur_year = intval(date('Y'));
+  $display_year = $cur_year;
+  $footer_credits = '&copy;' . $display_year . " ". $developed_by . $terms;
+  $credits_format = '<%2$s id="footer-info">%1$s</%2$s>';
+  return et_get_safe_localization( sprintf( $credits_format, $footer_credits, 'div' ) );
+}
