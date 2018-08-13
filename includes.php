@@ -15,7 +15,7 @@ require_once( get_stylesheet_directory() . '/includes/admin_menu/pmbus_admin_add
 // Display Membership types and user information on admin page
 require_once( get_stylesheet_directory() . '/includes/admin_menu/groups_users_list_members.php');
 require_once( get_stylesheet_directory() . '/includes/shortcodes/list_all_cats.php');
-
+require_once( get_stylesheet_directory() . '/includes/shortcodes/list_all_products.php');
 require_once( get_stylesheet_directory() . '/includes/admin_menu/dev_testing/pmbus_dev_testing_page.php');
 
 

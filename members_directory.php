@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Members Directory
+Template Name: Sidebar Display
 */
 
 get_header();

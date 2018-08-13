@@ -10,3 +10,5 @@
     );
     register_taxonomy( 'companies', array( 'post', 'page', 'company' ), $args );
   }
+
+  
