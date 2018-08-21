@@ -34,7 +34,7 @@ require_once( get_stylesheet_directory() . '/includes/shortcodes/products_by_cat
 require_once( get_stylesheet_directory() . '/includes/shortcodes/list_companies.php');
 // List active PMBus Members [Companies taxonomy] shortcode
 require_once( get_stylesheet_directory() . '/includes/shortcodes/list_pmbus_members.php');
-require_once( get_stylesheet_directory() . '/includes/shortcodes/list_pmbus_adopters.php');
+require_once( get_stylesheet_directory() . '/includes/shortcodes/products_by_company.php');
 
 // Custom User Meta 'Company'
 require_once( get_stylesheet_directory() . '/includes/custom_meta_fields/user_company_meta_field.php');
@@ -52,6 +52,3 @@ require_once( get_stylesheet_directory() . '/includes/members_pages/page_templat
 require_once( get_stylesheet_directory() . '/includes/members_pages/set_parent_default.php');
 
 require_once( get_stylesheet_directory() . '/includes/shortcodes/gravity_forms_styling.php');
-
-// Custom column next to company
-require_once( get_stylesheet_directory() . '/includes/company_taxonomy/toggle_button.php');
