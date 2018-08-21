@@ -6,15 +6,15 @@ function list_pmbus_adopters() {
   ob_start();
   global $wpdb;
   ?>
-  <div class='one' style='background-image:url(""); background-size:94%; padding-right: 6%; padding-left: 3%;'>
-    <h2>PMBus® Adopter List</h2>
+  <div class='one' style='background-image:url(""); background-size:94%;'>
+    <h2>Products By Category</h2>
     <h5> (For a list of all SMIF member companies, see the <a style='color: #234F92' href='http://pmbus.staging.wpengine.com/members-directory/'>SMIF Members List</a>)</h5>
   </div>
-  <div class='two' style='background-size:94%; padding-right: 6%; padding-left: 3%;'>
+  <div class='two' style='background-size:94%;'>
     <center><h2>PMBus Members</h2></center>
   </div><br><br>
 
-  <div style='padding-right: 6%; padding-left: 3%;'>
+  <div>
 
     <style>
       * {
