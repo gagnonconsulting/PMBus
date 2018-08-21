@@ -16,93 +16,7 @@ function list_pmbus_adopters() {
 
   <div style='padding-right: 6%; padding-left: 3%;'>
 
-    <style>
-      * {
-        box-sizing: border-box;
-      }
 
-      #myInput {
-        background-position: 10px 10px;
-        background-repeat: no-repeat;
-        width: 100%;
-        padding: 12px 20px 12px 40px;
-        border: 1px solid #ddd;
-        margin-bottom: 12px;
-      }
-
-      #myTable {
-        border-collapse: collapse;
-        width: 100%;
-        border: 1px solid #ddd;
-      }
-
-      #myTable th, #myTable td {
-        text-align: left;
-        padding: 12px;
-      }
-
-      #myTable th {
-        background-color: #6b3064;
-        color: white;
-      }
-
-      #myTable tr {
-        border-bottom: 1px solid #ddd;
-      }
-
-      #myTable tr.header, #myTable tr:hover {
-        background-color: #f1f1f1;
-      }
-    </style>
-
-
-    <style>
-      table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
-
-      td, th {
-        border: 1px solid #d3d3d3;
-        text-align: left;
-        padding: 8px;
-      }
-
-      tr:nth-child(even) {
-        background-color: #d7d7d7;
-      }
-
-      .btn_members {
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-        border-radius: 0px;
-        font-family: Arial;
-        color: #ffffff;
-        background: #692f68;
-        padding: 10px 20px 10px 20px;
-        text-decoration: none;
-        font-size: .7em;
-      }
-
-      .btn_members:hover {
-        background: #F18631;
-        text-decoration: none;
-      }
-
-      @media only screen and (max-width: 900px) {
-        .one{
-          display: none;
-        }
-      }
-
-      @media only screen and (min-width: 900px) {
-        .two{
-          display: none;
-        }
-      }
-
-    </style>
 
     <?php
     $members_list = $wpdb->get_results(
@@ -214,6 +128,94 @@ function list_pmbus_adopters() {
       }
     }
   </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    #myInput {
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      width: 100%;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+    #myTable {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+
+    #myTable th, #myTable td {
+      text-align: left;
+      padding: 12px;
+    }
+
+    #myTable th {
+      background-color: #6b3064;
+      color: white;
+    }
+
+    #myTable tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+    #myTable tr.header, #myTable tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #d3d3d3;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #d7d7d7;
+    }
+
+    .btn_members {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0px;
+      font-family: Arial;
+      color: #ffffff;
+      background: #692f68;
+      padding: 10px 20px 10px 20px;
+      text-decoration: none;
+      font-size: .7em;
+    }
+
+    .btn_members:hover {
+      background: #F18631;
+      text-decoration: none;
+    }
+
+    @media only screen and (max-width: 900px) {
+      .one{
+        display: none;
+      }
+    }
+
+    @media only screen and (min-width: 900px) {
+      .two{
+        display: none;
+      }
+    }
+
+  </style>
 
   <?php
   $pmbus_members_list = ob_get_clean();

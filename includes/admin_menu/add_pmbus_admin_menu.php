@@ -23,14 +23,14 @@ function add_pmbus_admin_menu(){
 		  'add_new_members_slug',
 		  'add_new_members_function');
 			*/
-  add_menu_page(
+  /* add_menu_page(
 	'PMBus Admin Settings',
 	 'PMBus Dev Testing',
 	  'manage_options',
 		 'pmbus_dev_page',
 		  'pmbus_dev_testing_page_build', // Function that is called to build 'PMBus' Page
 			 'dashicons-admin-tools', // Icon that displays next to menu item
-				3);
+				3); */
 
 	/* add_menu_page(
    'PMBus Admin Settings',
@@ -51,10 +51,10 @@ function add_custom_link_into_appearnace_menu() {
 }
 
 // Below is the code to remove admin menu tabs for a specified email (user)
-// add_action('admin_menu', 'remove_admin_menu_links', '999');
+add_action('admin_menu', 'remove_admin_menu_links', '999');
 function remove_admin_menu_links(){
   $user = wp_get_current_user();
-  if( $user && isset($user->user_email) && 'Richard@gagnonconsulting.com' == $user->user_email ) {
+  if(( $user && isset($user->user_email) && 'clyde@pmbus.org' == $user->user_email ) or ($user && isset($user->user_email) && 'smif@pmbus.org' == $user->user_email )){
     remove_menu_page('tools.php');
     remove_menu_page('themes.php');
     remove_menu_page('options-general.php');
@@ -75,7 +75,8 @@ function remove_admin_menu_links(){
 		remove_menu_page('edit.php?post_type=project' );
 		remove_menu_page('wpengine-common' );
 		remove_menu_page('woocommerce');
-    remove_menu_page('woocommerce');
+    remove_menu_page('wppusher');
+    remove_menu_page('edit.php?post_type=acf' );
   }
 }
 
@@ -89,6 +90,6 @@ function companies_menu_link(){
 }
 
 function wpsites_custom_menu_link(){
-  wp_redirect( 'http://pmbus.staging.wpengine.com/wp-admin/edit-tags.php?taxonomy=companies&post_type=page', 301 );
+  wp_redirect( 'http://pmbus.wpengine.com/wp-admin/edit-tags.php?taxonomy=companies&post_type=page', 301 );
 	exit;
 }
