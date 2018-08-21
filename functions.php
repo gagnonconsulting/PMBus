@@ -21,11 +21,6 @@ add_action( 'save_post', 'cd_meta_box_save_company' );
 // Add menu item PMBus Admin and correlating pages
 add_action( 'admin_menu', 'add_pmbus_admin_menu' );
 
-// Adding custom field creating and saving to update and create new user pages
-add_action( 'personal_options_update', 'my_save_custom_user_profile_fields' );
-add_action( 'edit_user_profile_update', 'my_save_custom_user_profile_fields' );
-add_action( 'user_new_update', 'my_save_custom_user_profile_fields' );
-
 add_action( 'companies_edit_form_fields', 'external_url_taxonomy_edit_meta_field', 10, 2 );
 add_action( 'edited_companies', 'save_taxonomy_custom_meta', 10, 2 );
 add_action( 'create_companies', 'save_taxonomy_custom_meta', 10, 2 );

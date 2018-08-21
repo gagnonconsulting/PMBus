@@ -43,6 +43,7 @@ function list_pmbus_members() {
       #myTable th {
         background-color: #6b3064;
         color: white;
+        cursor: pointer;
       }
 
       #myTable tr {
@@ -52,10 +53,7 @@ function list_pmbus_members() {
       #myTable tr.header, #myTable tr:hover {
         background-color: #f1f1f1;
       }
-    </style>
 
-
-    <style>
       table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -127,12 +125,13 @@ function list_pmbus_members() {
     <div class='row'>
       <div>
           <h1><?php get_field('membership_type', 810); ?></h1>
-          <table id='myTable'>
-            <tr>
+          <table id='myTable' class='sortable'>
+            <thead>
               <th>PMBus Member: </th>
               <th>Membership Type:</th>
               <th><center>SMIF Page:</center></th>
-            </tr>
+            </thead>
+            <tbody id="people">
             <?php
             for($k=0; $k<count($members_list); $k++){
               if($loop_query[0]->option_value != 'Drafted Member'){
@@ -189,6 +188,7 @@ function list_pmbus_members() {
             //echo do_shortcode("[groups_users_list_members group_id='8' /]");
             //echo do_shortcode("[groups_users_list_members group_id='4' /]");
             ?>
+          </tbody>
           </table>
       </div>
     </div>
@@ -213,6 +213,20 @@ function list_pmbus_members() {
         }
       }
     }
+
+    const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+
+    const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
+        v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+        )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+
+    // do the work...
+    document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+        const table = th.closest('table');
+        Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+            .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+            .forEach(tr => table.appendChild(tr) );
+    })));
   </script>
 
   <?php

@@ -26,5 +26,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div style='padding-right:2%'>
 <table style="border: 1px solid #777777;"class='gci-product-table products-columns-1'>
+<thead >
+<th>Image</th><th style="border-style: solid; border-width: 1px; border-color: black; cursor: pointer;">Company</th><th style="border-style: solid; border-width: 1px; border-color: black; cursor: pointer;">Product ID</th><th style="border-style: solid; border-width: 1px; border-color: black; cursor: pointer;">Description</th><th>Link</th>
+</thead>
+<tbody>
 
 <?php
