@@ -112,3 +112,17 @@ tr:nth-child(even) {
 .lwa-title {
   color: white !important;
 }
+
+.gci_product_table th {
+  border: 1px solid black;
+  color: white !important;
+  line-height: .5em;
+}
+
+.gci_product_table_sortable {
+  cursor: pointer;
+}
+
+.gci_product_table thead {
+  background-color: purple;
+}

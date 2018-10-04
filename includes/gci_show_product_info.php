@@ -5,27 +5,28 @@ function gci_show_product_info() {
   global $product;
 
   $url = $product->get_attribute( 'pa_product_link' );
-  $clickable_url = "<a target='_blank' href='".$url."'>Visit</a>";
+  $clickable_url = "<a style='color: #632262 !important;' target='_blank' href='".$url."'>Visit</a>";
   ?>
+    <tr>
+      <td style="border:1px solid #777777 !important; padding:0px" class="gci-product-table-td gci_hide" width="15%" height="0">
+        <center><?php echo get_the_post_thumbnail(); ?></center>
+      </td>
 
-  <td style="border:1px solid #777777 !important; padding:0px" class="gci-product-table-td gci_hide" width="15%" height="0">
-    <center><?php echo get_the_post_thumbnail(); ?></center>
-  </td>
+      <td style="border:1px solid #777777 !important;" class='gci-product-table-td' width='15%'height='0'>
+        <?php echo $product->get_attribute( 'pa_Company' ); ?>
+      </td>
 
-  <td style="border:1px solid #777777 !important;" class='gci-product-table-td' width='15%'height='0'>
-    <?php echo $product->get_attribute( 'pa_Company' ); ?>
-  </td>
+      <td style="border:1px solid #777777 !important;" class='gci-product-table-td' width='15%' height='0'>
+        <?php echo get_the_title(); ?>
+      </td>
 
-  <td style="border:1px solid #777777 !important;" class='gci-product-table-td' width='15%' height='0'>
-    <?php echo get_the_title(); ?>
-  </td>
+      <td style="border:1px solid #777777 !important;" class='gci-product-table-td gci_hide' width='50%' height='0'>
+        <?php echo get_the_excerpt(); ?>
+      </td>
 
-  <td style="border:1px solid #777777 !important;" class='gci-product-table-td gci_hide' width='50%' height='0'>
-    <?php echo get_the_excerpt(); ?>
-  </td>
-
-  <td style="border:1px solid black !important;" class='gci-product-table-td' width='5%' height='0'>
-  <?php echo $clickable_url; ?>
-    </td>
+      <td style="border:1px solid black !important;" class='gci-product-table-td' width='5%' height='0'>
+        <?php echo $clickable_url; ?>
+      </td>
+    </tr>
   <?php
 }

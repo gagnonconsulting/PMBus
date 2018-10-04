@@ -58,9 +58,11 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 								?>
 								<!-- get featured image -->
 								<div>
-									<div style='background-size:100%;'>
+									<div style='background-size:100%; text-align: left; padding-top: 5%; padding-bottom:5%; background-image:url("http://pmbus.wpengine.com/wp-content/uploads/2018/08/wave-graphic.jpg");'>
 										<?php echo get_the_post_thumbnail(); ?>
+
 									</div>
+									</style>
 								</div>
 
 								<?php
@@ -173,6 +175,12 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 										<h2 style='color:#013087'><?= $gci_company_products_query[$i]->name ?></h2>
 
 										<?php
+
+										// Setting the member's product table ID within the loop
+										$gci_table_name = $gci_company_products_query[$i]->name;
+										$gci_table_name = preg_replace('/\s+/', '_', $gci_table_name);?><br><?php
+
+
 										$cat_id = $gci_company_products_query[$i]->term_id;
 										$pq = $wpdb->get_results(
 										"
@@ -206,15 +214,16 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 										echo do_shortcode("[products ids='$p2id']");
 										?>
 
-										<br>
-
 										<?php
+
 									}
 									?>
 
 								</div>
 
 								<?php
+
+
 								continue;
 							}
 						?>
@@ -222,6 +231,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 					<?php
 				endwhile;
 				?>
+
 			</div> <!-- #left-area -->
 			<?php
 			get_sidebar();
@@ -229,20 +239,63 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 		</div> <!-- #content-area -->
 	</div> <!-- .container -->
 </div> <!-- #main-content -->
+
 <script>
-	const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
-
-	const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
-	v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
-	)(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-
-	// do the work...
-	document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
-	const table = th.closest('table');
-	Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
-	.sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
-	.forEach(tr => table.appendChild(tr) );
-	})));
+function sortTable(n, table) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById(table);
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc";
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
 </script>
+
 <?php
 get_footer();

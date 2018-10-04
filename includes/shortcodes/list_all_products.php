@@ -1,6 +1,7 @@
 <?php
 function products_by_category(){
 
+
 $gci_category_contents = '';
 
 ob_start();
@@ -52,6 +53,11 @@ ob_start();
             </li>
             <div>
               <?php
+
+
+              $GLOBALS['gci_table_name'] = $GLOBALS['gci_table_name'] . '_table';
+              $GLOBALS['gci_table_name'] = $child_product_cat->slug;
+
               echo do_shortcode("[products category='$child_product_cat->term_id']");
               ?><br>
 
@@ -160,6 +166,8 @@ function products_by_company() {
 	.sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
 	.forEach(tr => table.appendChild(tr) );
 	})));
+
+
 </script>
 <?php
 $gci_company_contents = ob_get_clean();

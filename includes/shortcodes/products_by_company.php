@@ -6,15 +6,15 @@ function list_pmbus_adopters() {
   ob_start();
   global $wpdb;
   ?>
-  <div class='one' style='background-image:url(""); background-size:94%; padding-right: 6%; padding-left: 3%;'>
-    <h2>PMBus® Adopter List</h2>
-    <h5> (For a list of all SMIF member companies, see the <a style='color: #234F92' href='http://pmbus.staging.wpengine.com/members-directory/'>SMIF Members List</a>)</h5>
+  <div class='one' style='background-image:url(""); background-size:100%;'>
+    <h2>PMBus® SMIF Page Directory</h2>
+    <h5> (For a list of all SMIF member companies, see the <a class="table_item" style="text-decoration: underline" href='http://pmbus.staging.wpengine.com/members-directory/'>SMIF Members List</a>)</h5>
   </div>
-  <div class='two' style='background-size:94%; padding-right: 6%; padding-left: 3%;'>
-    <center><h2>PMBus Members</h2></center>
+  <div class='two' style='background-size:100%;'>
+    <center><h2 >PMBus Members</h2></center>
   </div><br><br>
 
-  <div style='padding-right: 6%; padding-left: 3%;'>
+  <div>
 
 
 
@@ -44,9 +44,9 @@ function list_pmbus_adopters() {
           <h1><?php get_field('membership_type', 810); ?></h1>
           <table id='myTable'>
             <tr>
-              <th>PMBus Member: </th>
-              <th>Additional Info:</th>
-              <th>Product Page:</th>
+              <th class="table_ref">PMBus Member: </th>
+              <th class="table_ref" style="width:30%;">Additional Info:</th>
+              <th class="table_ref">SMIF Page:</th>
             </tr>
             <?php
             for($k=0; $k<count($members_list); $k++){
@@ -85,11 +85,11 @@ function list_pmbus_adopters() {
 
                 if(($loop_query[0]->option_value == 'PMBus Adopter') or ($loop_query[0]->option_value == 'SMIF Full Member')){
                   ?>
-                  <td><a target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
-                  <td><?= $loop_info_query[0]->option_value; ?></td>
+                  <td><a class="table_item" target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
+                  <td><?= $loop_info_query[0]->option_value;?></td>
                   <?php
                   if($loop_query[0]->option_value != 'SMIF Tools Member'){
-                    $member_url = '<center><a target="_blank" href="http://pmbus.staging.wpengine.com/' . $members_list[$k]->slug . '">Link</a></center>';
+                    $member_url = '<center><a class="table_item" target="_blank" href="http://pmbus.staging.wpengine.com/' . $members_list[$k]->slug . '">PMBus page</a></center>';
                     ?>
                     <td><?= $member_url; ?></td><?php
                   }
@@ -221,4 +221,4 @@ function list_pmbus_adopters() {
   $pmbus_members_list = ob_get_clean();
   return $pmbus_members_list;
 }
-add_shortcode('list_adopters', 'list_pmbus_adopters');
+add_shortcode('list_product_pages', 'list_pmbus_adopters');

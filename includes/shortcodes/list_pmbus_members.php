@@ -7,7 +7,7 @@ function list_pmbus_members() {
   global $wpdb;
   ?>
   <div class='one' style='background-image:url(""); background-size:94%;'>
-    <h2>PMBus Members</h2>
+    <h2>PMBus&reg Member Directory</h2>
   </div>
   <div class='two' style='background-size:94%;'>
     <center><h2>PMBus Members</h2></center>
@@ -127,9 +127,9 @@ function list_pmbus_members() {
           <h1><?php get_field('membership_type', 810); ?></h1>
           <table id='myTable' class='sortable'>
             <thead>
-              <th>PMBus Member: </th>
-              <th>Membership Type:</th>
-              <th><center>SMIF Page:</center></th>
+              <th class="table_ref">PMBus Member: </th>
+              <th class="table_ref">Membership Type:</th>
+              <th class="table_ref"><center>SMIF Page:</center></th>
             </thead>
             <tbody id="people">
             <?php
@@ -151,7 +151,7 @@ function list_pmbus_members() {
                   $companies_url = $loop_url_query[0]->option_value;
 
                   if($companies_url !== ''){ ?>
-                    <td><a target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td> <?php
+                    <td><a class="table_item" target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td> <?php
                   }
 
                   else { ?>
@@ -172,12 +172,12 @@ function list_pmbus_members() {
 
                   <?php
                   if($loop_query[0]->option_value != 'SMIF Tools Member'){
-                    $member_url = '<center><a target="_blank" href="http://pmbus.staging.wpengine.com/' . $members_list[$k]->slug . '">Link</a></center>';
+                    $member_url = '<center><a class="table_item" target="_blank" href="http://pmbus.staging.wpengine.com/' . $members_list[$k]->slug . '">PMBus page</a></center>';
                     ?>
                     <td><?= $member_url; ?></td><?php
                   }
                   else { ?>
-                    <td><center>N/A</center></td><?php
+                    <td><a style="color: #5E2663" href="http://pmbus.staging.wpengine.com/resources/tools/"><center><em><strong>Tools page</em></strong></center></a></td><?php
                   }
                   ?>
 

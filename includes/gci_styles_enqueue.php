@@ -25,7 +25,7 @@ function divi_child_enqueue() {
 		);
 }
 
-add_action('wp_enqueue_scripts', 'divi_child_enqueue');
+add_action('wp_enqueue_scripts', 'divi_child_enqueue', 59);
 
 function theme_enqueue_styles() {
     wp_enqueue_style(
@@ -38,4 +38,4 @@ function theme_enqueue_styles() {
     );
 }
 
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles', 60 );

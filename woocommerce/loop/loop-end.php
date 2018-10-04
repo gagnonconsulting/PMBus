@@ -20,6 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-</table>
+	</table>
 </div>
 <?php
