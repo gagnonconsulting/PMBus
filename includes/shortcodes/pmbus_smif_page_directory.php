@@ -8,7 +8,7 @@ function list_pmbus_adopters() {
   ?>
   <div class='one' style='background-image:url(""); background-size:100%;'>
     <h2>PMBus® SMIF Page Directory</h2>
-    <h5> (For a list of all SMIF member companies, see the <a class="table_item" style="text-decoration: underline" href='http://pmbus.staging.wpengine.com/members-directory/'>SMIF Members List</a>)</h5>
+    <!-- <h5> (For a list of all SMIF member companies, see the <a class="table_item" style="text-decoration: underline" href='http://pmbus.wpengine.com/members-directory/'>SMIF Members List</a>)</h5> -->
   </div>
   <div class='two' style='background-size:100%;'>
     <center><h2 >PMBus Members</h2></center>
@@ -38,13 +38,14 @@ function list_pmbus_adopters() {
     ?>
 
 
+
     <input type="text" id="myInput" onkeyup="myFunction();" placeholder="Search Members By Company Name.." title="Type in a name">
     <div class='row'>
       <div>
           <h1><?php get_field('membership_type', 810); ?></h1>
           <table id='myTable'>
             <tr>
-              <th class="table_ref">PMBus Member: </th>
+              <th class="table_ref">SMIF Member: </th>
               <th class="table_ref" style="width:30%;">Additional Info:</th>
               <th class="table_ref">SMIF Page:</th>
             </tr>
@@ -88,8 +89,12 @@ function list_pmbus_adopters() {
                   <td><a class="table_item" target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
                   <td><?= $loop_info_query[0]->option_value;?></td>
                   <?php
+                  $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    							$arr = explode("/", $url, 2);
+    							$first = $arr[0];
+
                   if($loop_query[0]->option_value != 'SMIF Tools Member'){
-                    $member_url = '<center><a class="table_item" target="_blank" href="http://pmbus.staging.wpengine.com/' . $members_list[$k]->slug . '">PMBus page</a></center>';
+                    $member_url = '<center><a class="table_item" href="http://' . $first . '/' . $members_list[$k]->slug . '">SMIF Page</a></center>';
                     ?>
                     <td><?= $member_url; ?></td><?php
                   }
@@ -127,6 +132,7 @@ function list_pmbus_adopters() {
         }
       }
     }
+
   </script>
 
   <style>
@@ -166,10 +172,7 @@ function list_pmbus_adopters() {
     #myTable tr.header, #myTable tr:hover {
       background-color: #f1f1f1;
     }
-  </style>
 
-
-  <style>
     table {
       font-family: arial, sans-serif;
       border-collapse: collapse;
@@ -183,7 +186,7 @@ function list_pmbus_adopters() {
     }
 
     tr:nth-child(even) {
-      background-color: #d7d7d7;
+
     }
 
     .btn_members {

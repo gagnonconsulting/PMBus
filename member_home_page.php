@@ -82,6 +82,21 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 							SELECT DISTINCT term_id FROM wp_terms WHERE slug = '$company_custom_field'
 							");
 
+							$gci_company_slug_query = $wpdb->get_results(
+							"
+							SELECT slug FROM wp_terms WHERE slug = '$company_custom_field'
+							");
+							$gci_company_slug = $gci_company_slug_query[0]->slug;
+
+							$gci_company_product_list_for_page = $wpdb->get_results(
+							"
+							select * from wp_terms t, wp_term_relationships r where t.slug = '$gci_company_slug' AND r.term_taxonomy_id = t.term_id
+							");
+
+							if($gci_company_product_list_for_page == null){
+								?><h2 style="text-align:center"><em>No PMBus products have been submitted for display here.</em></h2><?php
+							}
+							else{
 							$gci_company_id = $gci_company_id_query[0]->term_id;
 							?>
 							<br>
@@ -92,7 +107,6 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 								SELECT * FROM `wp_terms` WHERE name = 'Company'
 								");
 								$woo_commerce_company_id = $woo_commerce_company[0]->term_id;
-
 								$gci_featured_products = $wpdb->get_results("
 									SELECT * FROM
 											(
@@ -109,8 +123,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 											) as categories
                                             WHERE parent=".$woo_commerce_company_id."
                                             GROUP BY object_id
-									"); ?>
-									<?php
+									");
 										if($gci_featured_products != null){ ?>
 											<h1>Featured Products</h1><br> <?php
 											echo do_shortcode('[products limit="4" category="'.$company_custom_field.'" visibility="featured"]');
@@ -226,6 +239,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 								continue;
 							}
+						}
 						?>
 					</article> <!-- .et_pb_post -->
 					<?php
@@ -239,9 +253,10 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 		</div> <!-- #content-area -->
 	</div> <!-- .container -->
 </div> <!-- #main-content -->
-
 <script>
+
 function sortTable(n, table) {
+
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById(table);
   switching = true;
@@ -268,13 +283,16 @@ function sortTable(n, table) {
         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
           //if so, mark as a switch and break the loop:
           shouldSwitch= true;
+
           break;
         }
       } else if (dir == "desc") {
         if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
           //if so, mark as a switch and break the loop:
           shouldSwitch = true;
+
           break;
+
         }
       }
     }
@@ -290,10 +308,72 @@ function sortTable(n, table) {
       set the direction to "desc" and run the while loop again.*/
       if (switchcount == 0 && dir == "asc") {
         dir = "desc";
+
+				//DECENDING BREAK
+
         switching = true;
       }
     }
   }
+
+	//Product ID Sort
+	if(n == 2){
+		if (dir == "asc") {
+			var c = table.querySelectorAll("div.IdUp");
+	    c[0].style.display="inline";
+	    var d = table.querySelectorAll("div.IdDown");
+	    d[0].style.display="none";
+			var c = table.querySelectorAll("div.comUp");
+	    c[0].style.display="inline";
+	    var d = table.querySelectorAll("div.comDown");
+	    d[0].style.display="inline";
+		}
+		if (dir == "desc") {
+			var c = table.querySelectorAll("div.IdUp");
+	    c[0].style.display="none";
+	    var d = table.querySelectorAll("div.IdDown");
+	    d[0].style.display="inline";
+			var c = table.querySelectorAll("div.comUp");
+	    c[0].style.display="inline";
+	    var d = table.querySelectorAll("div.comDown");
+	    d[0].style.display="inline";
+		}
+	}
+
+	//Comapany Sort
+	if(n == 1){
+		if (dir == "asc") {
+			var c = table.querySelectorAll("div.comUp");
+	    c[0].style.display="inline";
+	    var d = table.querySelectorAll("div.comDown");
+	    d[0].style.display="none";
+			var c = table.querySelectorAll("div.IdUp");
+	    c[0].style.display="inline";
+	    var d = table.querySelectorAll("div.IdDown");
+	    d[0].style.display="inline";
+		}
+		if (dir == "desc") {
+			var c = table.querySelectorAll("div.comUp");
+	    c[0].style.display="none";
+	    var d = table.querySelectorAll("div.comDown");
+	    d[0].style.display="inline";
+			var c = table.querySelectorAll("div.IdUp");
+	    c[0].style.display="inline";
+	    var d = table.querySelectorAll("div.IdDown");
+	    d[0].style.display="inline";
+		}
+	}
+
+}
+
+function removeArrows() {
+  var x = document.querySelectorAll(".gci_product_table");
+	alert(x);
+	for (i = 0; i < x.length; i++) {
+		if(var[i].rows.length == 1){
+			var[i].removeChild(".comUp");
+		}
+	}
 }
 </script>
 

@@ -20,7 +20,7 @@ function gci_list_all_cats(){
 
     foreach ($product_cat as $parent_product_cat)
     {
-      if ($parent_product_cat->name != 'Company' && $parent_product_cat->name != 'Uncategorized'){
+      if ($parent_product_cat->name != 'Company' && $parent_product_cat->name != 'Uncategorized' && $parent_product_cat->name != 'Misc' && $parent_product_cat->name != 'product_cat'){
       ?>
 
         <ul>
@@ -46,7 +46,7 @@ function gci_list_all_cats(){
 
               $child_product_cats = get_terms( $child_args );
               foreach ($child_product_cats as $child_product_cat)
-              { ?>
+              {?>
                 <li>
                   <h3><a href='<?= get_term_link($child_product_cat->term_id) ?>'><?= $child_product_cat->name?></a></h3>
                 </li>

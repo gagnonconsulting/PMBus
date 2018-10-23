@@ -86,10 +86,15 @@ if ( $user ) {
 }
 
 function companies_menu_link(){
-  add_menu_page( 'custom menu link', 'PMBus Members', 'manage_options', 'any-url', 'wpsites_custom_menu_link', 'dashicons-id', 3 );
+  add_menu_page( 'custom menu link', 'SMIF Members', 'manage_options', 'any-url', 'wpsites_custom_menu_link', 'dashicons-id', 3 );
 }
 
 function wpsites_custom_menu_link(){
-  wp_redirect( 'http://pmbus.wpengine.com/wp-admin/edit-tags.php?taxonomy=companies&post_type=page', 301 );
+  $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+  $arr = explode("/", $url, 2);
+  $first = $arr[0];
+
+  echo $smifUrl = 'http://' . $first . '/wp-admin/edit-tags.php?taxonomy=companies&post_type=page';
+  wp_redirect( $smifUrl, 301 );
 	exit;
 }

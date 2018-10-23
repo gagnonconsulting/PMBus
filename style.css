@@ -60,7 +60,7 @@ margin: 1em 0;
 
 
 tr:nth-child(even) {
-    background-color: #ededed;
+
 }
 
 .gci-product-table {
@@ -75,7 +75,7 @@ tr:nth-child(even) {
 }
 
 .gci-product-table-td tr:nth-child(even) {
-    background-color: #E4DEC6;
+
 }
 
 @media only screen and (max-width: 900px) {
@@ -116,7 +116,12 @@ tr:nth-child(even) {
 .gci_product_table th {
   border: 1px solid black;
   color: white !important;
-  line-height: .5em;
+  line-height: 110%;
+}
+
+.gci_product_table td {
+  border: 1px solid black;
+  line-height: 110%;
 }
 
 .gci_product_table_sortable {
@@ -124,5 +129,85 @@ tr:nth-child(even) {
 }
 
 .gci_product_table thead {
-  background-color: purple;
+  background-color: #612166;
+}
+
+#top-menu li {
+  padding: 0px !important;
+}
+
+#et-secondary-menu .avatar {
+	display: none !important;
+}
+
+#et-secondary-menu .lwa-info a:nth-child(3) {
+  display: none !important;
+}
+#et-secondary-menu .lwa-info br:nth-child(2) {
+  display: none !important;
+}
+
+.gci_form {
+  background-color:  #E8EBED !important;
+  border: 1px solid black !important;
+  border-radius: 4px !important;
+}
+
+a {
+  text-decoration: underline;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.menu-item a {
+	font-style: normal;
+	text-decoration: none;
+}
+
+.table_ref {
+	text-decoration: none;
+	font-size:1.2em;
+}
+
+.table_item {
+	text-decoration: none;
+	color:#5E2663;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.entry-meta .byline, .entry-meta .cat-links { display: none; }
+.entry-meta .posted-on { display: none; }
+
+.widget-content #widget_wcc_widget {
+}
+.widget-content h3 {
+	font-weight:bold;
+		line-height: 1.3em;
+}
+.widget_wcc_widget h4 {
+	font-size:1.2em;
+	font-weight:bold;
+	line-height:1.3em;
+}
+.widget-content a {
+	color: #5e2663;
+	font-weight:bold;
+	text-decoration:underline;
+}
+.menu-item li {
+	line-height:1.3em !important;
+}
+#et-secondary-nav .menu-item-has-children>a:first-child:after, #top-menu .menu-item-has-children>a:first-child:after {
+	right:2px;
+	content:"7";
+}
+#top-menu li {
+	padding-right:2px !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  .rc-anchor-logo-portrait {
+    display:none;
+  }
 }

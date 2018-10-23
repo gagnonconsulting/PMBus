@@ -21,7 +21,7 @@ ob_start();
 
   foreach ($product_cat as $parent_product_cat)
   {
-    if ($parent_product_cat->name != 'Company' && $parent_product_cat->name != 'Uncategorized'){
+    if ($parent_product_cat->name != 'Company' && $parent_product_cat->name != 'Uncategorized' && $parent_product_cat->name != 'Misc' && $parent_product_cat->name != 'product_cat'){
     ?>
 
     <ul>

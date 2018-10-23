@@ -22,24 +22,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <style>
-.arrow-up {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid black;
-	display: inline;
-	margin-top: 0px;
+@media only screen and (max-width: 600px) {
+	.mobileShow {
+  	width: 33%;
+	}
+	.phone_display {
+		width:200px;
+	}
+	.phone_display_link {
+		width:50px;
+	}
+	.phone_display_table {
+		margine-left: -100px;
+	}
 }
-</style> <?php
-$GLOBALS['gci_table_name'] = $GLOBALS['gci_table_name'] . '_table';
-$table_id = $GLOBALS['gci_table_name'];
 
-?>
-<!-- Original Table
-<table width='100%' id='gci-product-table' class='products columns-1'>
--->
-<style>
 .up {
 
 	display: inline;
@@ -49,18 +46,26 @@ $table_id = $GLOBALS['gci_table_name'];
 
 }
 </style>
+<?php
+$GLOBALS['gci_table_name'] = $GLOBALS['gci_table_name'] . '_table';
+$table_id = $GLOBALS['gci_table_name'];
 
-<div style='padding-right:2%'>
-<?php $up_arrow = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEX///8JBQkAAABMS0wGAAb5+fnc3Nz29vbp6en8/PwDAAOHhodramvu7u7Kysrf399wb3B8e3xHRUfR0NGysbKOjY5RUFFaWVq5uLlkY2TAwMAUERQ3NTempaY8OjyLiosnJScmJCZDQUMxMDGbmpt+fn4eHB4ZFhmhoKFq0OEiAAAEn0lEQVR4nO2di1IqMRBE2QCCKCKgKCpe8IX//4U3iJS6ZJfZzUwmSfX5gpyyZJtOA50OAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBWDG+mi+7iejXRPogQ86458HylfRgJpsYUB4xZ9rXPw81w++O3dzzTPhIvQ/NXMD/F57LgTjGnF5y7Y0GrOBpon4uNa5egVVzn8nLzzy1oFZ+1j8bDqkrQKt5pH46D+2pBq3itfTx/5qZXY1iYW+0D+nJmRnWCVnGlfUQ/jp/0x4oP2of0YfB4UrDombn2MT14Oi2YdriZUQR3imPtk7ZkSRO0ips0w82UKmgVn7QP24Y3uqBVXGgftzk3TQRTDDcPzQSt4oX2kZtxIqs5FT+1D90EQpRxKN5rH5vOuNdC0IabZDrG/qaNYFGMkimnHLUTjVTCjbN2IipuUyinLtsLWsVX7eOf5tZHMIVw8+knaBWX2gr11NZORMWow81V8yjjUHzT1qjmrE2UcSjeaItU0SqrOYg23Ay2PILxhptXLsFduBlq2zgg1k5Excf4wg25diIqrrWFyjSonYiKM22lv3hmNadiVOGmYe1EVJxqa/3wwBFlHIrRhJsWtRNRMZJwM2GKMsf04rh5G4+kBHfhJoKbt/6HnGAc4eZFUtAqFtrhZiEraBU/zlUFK9ZOrIqq4eZCXlB3VuRdOxEV1cKNSFZzKirNilhqJ6KiyqyIqXYiKiqEG67aiYbCrIiyduIkeLg5Z6ydqIphb96Es5pTMWi4Ya6diIoBN9PstRNRMVi4EaidiIqBZkU1y3RxxSA3b0K1E1ExQLgRq52IiuKzIrnaiYZ4uBkrC+7KKdHNtGztREM23JCW6dKYQm4z7bF24kQu3HitnTiRmhUFqZ1omEsJwUbLdGkkwk2w2okG/81bwNqJBne4Ofkhu+Awz4rC1k40WGdFoWsnGpzl1DpGQc5ZEevaiRPzylNOqdRONEyXQ1CpdqLBEW7Uaica/jdvkUWZY3zDDcMyXRq/WZFy7UTCa1akXTvR8Ag3+rUTjdbhph9lVnNhTLtw0/pDduFpF27E106ctJkVRVM70Wh+8xZR7USjabiJqnai0WxWFH1Wc9Hk5i262olEg3ATX+1Eg3zzFmPtRIP4bUWDZAWJ4Sb82okTyrcVKaydODl98xZx7UTjVLgJsEyXpn5WFHntRKMu3CiunTipDjcJ1E40qm7eUqidaFSEmzRqJxrOcJNK7UTDMSsaRLB24sR8lPNbFGsnTsrhppubYHlWlFjtRON3uHnPUfD3rCjJVobC4Vpqks2Tvkzv+0Iju5fRH/ZVeONvGk2Jr+FUUvcTTdk9MsY5C1rFcb4vpHvsG6lMn4UH7DMx2kkXD/YfcZvrw3BPb9PRPoI4nUftEwjz2Nmkec9EZbSO5XMwUphl9Y8x5YG5zTuWfgXTQbbvnXaMTD/TBuPA1wZlkrXhMNsaas/3jCjli/t6TPE96Et1XXKKX7cX8yz/in9+6TRHxdJPuY5nmTkaMyvfPl29mJxYuzZuw9X7XTcHFperOL/xHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8+Q+j72Y8SjJClQAAAABJRU5ErkJggg==';?>
+?>
+<!-- Original Table
+<table width='100%' id='gci-product-table' class='products columns-1'>
+-->
+<div style='margin-left: -50px;'>
+<?php $page_template = get_page_template_slug( get_queried_object_id() ); ?>
 
-<table id="<?php echo $table_id ?>" class="gci_product_table">
+<table style="width: 100%" id="<?php echo $table_id ?>" class="gci_product_table phone_display_table">
 		<thead>
 			<tr>
-				<th >Image</th>
-				<th class ="gci_product_table_sortable" onclick="sortTable(1, '<?php echo $table_id ?>')">Company</th>
-				<th class ="gci_product_table_sortable" onclick="sortTable(2, '<?php echo $table_id ?>')">Product ID</th>
-				<th style="border-style: solid; border-width: 1px; border-color: black;">Description</th>
-				<th style="border-style: solid; border-width: 1px; border-color: black;">Link</th>
+				<th style="width: 10%" class="gci_hide"></th>
+				<th class="phone_display gci_product_table_sortable" onclick="sortTable(1, '<?php echo $table_id ?>')" style="width:19%"><span style="white-space:nowrap;" >Company <?php if($page_template !== 'member_home_page.php'){?><div class="comUp" style="display:inline; overflow: hidden; white-space: nowrap;">&#8593;</div><div class="comDown" style="overflow: hidden; white-space: nowrap; display:inline">&#8595;</div><?php } ?></span></th>
+				<th class="phone_display gci_product_table_sortable mobileShow" onclick="sortTable(2, '<?php echo $table_id ?>')" style="width:21%">Product ID <span style="white-space:nowrap;"><div class="IdUp" style="display:inline">&#8593;</div><div class="IdDown" style="display:inline">&#8595;</div></span></th>
+				<th class="gci_hide" style="border-style: solid; border-width: 1px; border-color: black;">Description</th>
+				<th class="phone_display_link" style="width: 5%; border-style: solid; border-width: 1px; border-color: black;">Power Rating<div class="comUp" style="display:inline; overflow: hidden; white-space: nowrap;">&#8593;</div><div class="comDown" style="overflow: hidden; white-space: nowrap; display:inline">&#8595;</div></th>
+				<th class="phone_display_link" style="width: 5%; border-style: solid; border-width: 1px; border-color: black;">Input Voltage<div class="comUp" style="display:inline; overflow: hidden; white-space: nowrap;">&#8593;</div><div class="comDown" style="overflow: hidden; white-space: nowrap; display:inline">&#8595;</div></th>
 			</tr>
 	</thead>
 <?php

@@ -43,7 +43,6 @@ function list_pmbus_members() {
       #myTable th {
         background-color: #6b3064;
         color: white;
-        cursor: pointer;
       }
 
       #myTable tr {
@@ -67,7 +66,7 @@ function list_pmbus_members() {
       }
 
       tr:nth-child(even) {
-        background-color: #d7d7d7;
+
       }
 
       .btn_members {
@@ -125,13 +124,13 @@ function list_pmbus_members() {
     <div class='row'>
       <div>
           <h1><?php get_field('membership_type', 810); ?></h1>
-          <table id='myTable' class='sortable'>
+          <table id='myTable'>
             <thead>
               <th class="table_ref">PMBus Member: </th>
               <th class="table_ref">Membership Type:</th>
               <th class="table_ref"><center>SMIF Page:</center></th>
             </thead>
-            <tbody id="people">
+            <tbody>
             <?php
             for($k=0; $k<count($members_list); $k++){
               if($loop_query[0]->option_value != 'Drafted Member'){
@@ -171,8 +170,13 @@ function list_pmbus_members() {
                   <td><?= $loop_query[0]->option_value; ?></td>
 
                   <?php
+
+                  $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    							$arr = explode("/", $url, 2);
+    							$first = $arr[0];
+
                   if($loop_query[0]->option_value != 'SMIF Tools Member'){
-                    $member_url = '<center><a class="table_item" target="_blank" href="http://pmbus.staging.wpengine.com/' . $members_list[$k]->slug . '">PMBus page</a></center>';
+                    $member_url = '<center><a class="table_item" target="_blank" href="http://' . $first . '/' . $members_list[$k]->slug . '">PMBus page</a></center>';
                     ?>
                     <td><?= $member_url; ?></td><?php
                   }
@@ -214,19 +218,62 @@ function list_pmbus_members() {
       }
     }
 
-    const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+    function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("myTable");
+      switching = true;
+      //Set the sorting direction to ascending:
+      dir = "asc";
+      /*Make a loop that will continue until
+      no switching has been done:*/
+      while (switching) {
+        //start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /*Loop through all table rows (except the
+        first, which contains table headers):*/
+        for (i = 1; i < (rows.length - 1); i++) {
+          //start by saying there should be no switching:
+          shouldSwitch = false;
+          /*Get the two elements you want to compare,
+          one from current row and one from the next:*/
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          /*check if the two rows should switch place,
+          based on the direction, asc or desc:*/
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              //if so, mark as a switch and break the loop:
+              shouldSwitch= true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              //if so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          /*If a switch has been marked, make the switch
+          and mark that a switch has been done:*/
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          //Each time a switch is done, increase this count by 1:
+          switchcount ++;
+        } else {
+          /*If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again.*/
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
 
-    const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
-        v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
-        )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
 
-    // do the work...
-    document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
-        const table = th.closest('table');
-        Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
-            .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
-            .forEach(tr => table.appendChild(tr) );
-    })));
   </script>
 
   <?php

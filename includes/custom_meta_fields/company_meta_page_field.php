@@ -1,7 +1,7 @@
 <?php
 add_action( 'add_meta_boxes', 'cd_meta_box_add_company' );
 function cd_meta_box_add_company() {
-  add_meta_box( 'my-meta-box-id', 'Company Products Name:', 'cd_meta_box_cb', 'page', 'normal', 'high' );
+  add_meta_box( 'my-meta-box-id', '1. Select the company below to display the corresponding products.<br>2. Select the featured image (Company Logo) for the page.<br>3. Select the PMBus SMIF Member the page belongs to.', 'cd_meta_box_cb', 'page', 'normal', 'high' );
 }
 function cd_meta_box_cb( $post ) {
 
@@ -35,7 +35,7 @@ function cd_meta_box_cb( $post ) {
 
       <label for="Company"></label>
       <select name="Company" id="Company">
-        <option value="" selected> --------- </option>
+        <option value="" selected> --- No Products ---</option>
         <?php
           for($i=0; $i<count($cquery); $i++){?>
             <option value="<?= $cquery[$i]->slug ?>" <?php selected( $selected, $cquery[$i]->slug ); ?>><?= $cquery[$i]->name ?></option><?php
