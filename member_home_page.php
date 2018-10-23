@@ -152,16 +152,28 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 								"
 							);
 
+
+
 							for ($pa = 0; $pa < count($parent); $pa++) {
+								$parent_loop_id = $parent[$pa]->term_id;
+								$categories = get_term_children( $parent_loop_id, 'product_cat' );
+
+
 								?>
 								<div style='padding-left:10%; padding-right:10%;'>
-									<p>
+									<p><?php  if($categories[0] != null){ ?>
 										<h1 style='color:#5C2961'><?= $parent[$pa]->name ?></h1>
 										<hr style="color:#5C2961" width="30%" align="left">
+									<?php } ?>
 									</p>
 
 									<?php
-									$parent_loop_id = $parent[$pa]->term_id;
+
+
+
+
+
+
 									$gci_company_products_query = $wpdb->get_results(
 									"
 										SELECT * FROM
