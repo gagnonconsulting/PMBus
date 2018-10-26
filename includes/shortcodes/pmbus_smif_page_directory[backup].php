@@ -58,56 +58,46 @@ function list_pmbus_adopters() {
 
                 $loop_url =
                   "
-                  SELECT * FROM `wp_termmeta`
-                  WHERE term_id = $loop_member_id AND
-                  meta_key = 'company_website_url'
+                  SELECT * FROM `wp_options`
+                  WHERE option_name = 'companies_";
+                  $loop_url .= $loop_member_id;
+                  $loop_url .=  "_company_website_url'
                   ";
-
-                $loop_url_query = $wpdb->get_results($loop_url);
-                //URL set to the variable $companies_url
-                $companies_url = $loop_url_query[0]->meta_value;
+                  $loop_url_query = $wpdb->get_results($loop_url);
+                $companies_url = $loop_url_query[0]->option_value;
 
                 $loop_info =
                   "
-                  SELECT * FROM `wp_termmeta`
-                  WHERE term_id = $loop_member_id AND
-                  meta_key = 'additional_information'
+                  SELECT * FROM `wp_options`
+                  WHERE option_name = 'companies_";
+                  $loop_info .= $loop_member_id;
+                  $loop_info .=  "_additional_information'
                   ";
                 $loop_info_query = $wpdb->get_results($loop_info);
-                //URL set to the variable $companies_url
-                $additional_info_value = $loop_info_query[0]->meta_value;
 
-                $loop_member_type =
+                $loop_member =
                   "
-                  SELECT * FROM `wp_termmeta`
-                  WHERE term_id = $loop_member_id AND
-                  meta_key = 'membership_type'
+                  SELECT * FROM `wp_options`
+                  WHERE option_name = 'companies_";
+                  $loop_member .= $loop_member_id;
+                  $loop_member .=  "_membership_type'
                   ";
-                $loop_member_type_query = $wpdb->get_results($loop_member_type);
-                $loop_member_type_value = $loop_member_type_query[0]->meta_value;
+                $loop_query = $wpdb->get_results($loop_member);
 
-                if(($loop_member_type_value == 'PMBus Adopter') or ($loop_member_type_value == 'SMIF Full Member') or ($loop_member_type_value == 'SMIF Tools Member')){
+                if(($loop_query[0]->option_value == 'PMBus Adopter') or ($loop_query[0]->option_value == 'SMIF Full Member') or ($loop_query[0]->option_value == 'SMIF Tools Member')){
                   ?>
                   <td><a class="table_item" target='_blank' href='<?= $companies_url ?>'><?= $members_list[$k]->name; ?></a></td>
-                  <td><?= $additional_info_value;?></td>
+                  <td><?= $loop_info_query[0]->option_value;?></td>
                   <?php
                   $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     							$arr = explode("/", $url, 2);
     							$first = $arr[0];
-                  if($first == 'localhost:8889'){
-                    $first .= '/PMBus';
-                  }
-                  
-                  if($loop_member_type_value == 'PMBus Adopter'){
+
+                  if($loop_query[0]->option_value != 'SMIF Tools Member'){
                     $member_url = '<center><a class="table_item" href="http://' . $first . '/' . $members_list[$k]->slug . '">SMIF Page</a></center>';
                     ?>
                     <td><?= $member_url; ?></td><?php
                   }
-
-                  elseif($loop_member_type_value == 'SMIF Tools Member'){
-                    ?><td class='table_item'><a style="text-decoration: none;" href='http://<?php echo $first ?>/resources/tools/'><center>Tools Page</center></td><?php
-                  }
-
                   else { ?>
                     <td><center>N/A</center></td><?php
                   }

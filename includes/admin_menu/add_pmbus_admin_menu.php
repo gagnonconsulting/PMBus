@@ -93,6 +93,9 @@ function wpsites_custom_menu_link(){
   $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
   $arr = explode("/", $url, 2);
   $first = $arr[0];
+  if($first == 'localhost:8889'){
+    $first .= '/PMBus';
+  }
 
   echo $smifUrl = 'http://' . $first . '/wp-admin/edit-tags.php?taxonomy=companies&post_type=page';
   wp_redirect( $smifUrl, 301 );
