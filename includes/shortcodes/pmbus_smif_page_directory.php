@@ -7,7 +7,7 @@ function list_pmbus_adopters() {
   global $wpdb;
   ?>
   <div class='one' style='background-image:url(""); background-size:100%;'>
-    <h2>PMBus® SMIF Page Directory</h2>
+    <h2>SMIF Members Directory</h2>
     <!-- <h5> (For a list of all SMIF member companies, see the <a class="table_item" style="text-decoration: underline" href='http://pmbus.wpengine.com/members-directory/'>SMIF Members List</a>)</h5> -->
   </div>
   <div class='two' style='background-size:100%;'>
@@ -97,7 +97,7 @@ function list_pmbus_adopters() {
                   if($first == 'localhost:8889'){
                     $first .= '/PMBus';
                   }
-                  
+
                   if($loop_member_type_value == 'PMBus Adopter'){
                     $member_url = '<center><a class="table_item" href="http://' . $first . '/' . $members_list[$k]->slug . '">SMIF Page</a></center>';
                     ?>
