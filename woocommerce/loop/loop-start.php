@@ -51,21 +51,19 @@ $GLOBALS['gci_table_name'] = $GLOBALS['gci_table_name'] . '_table';
 $table_id = $GLOBALS['gci_table_name'];
 
 ?>
-<!-- Original Table
-<table width='100%' id='gci-product-table' class='products columns-1'>
--->
+
 <div style='margin-left: -50px;'>
 <?php $page_template = get_page_template_slug( get_queried_object_id() ); ?>
 
-<table style="width: 100%" id="<?php echo $table_id ?>" class="gci_product_table phone_display_table">
+<table style="width: 100%; table-layout: fixed;" id="<?php echo $table_id ?>" class="gci_product_table phone_display_table">
 		<thead>
 			<tr>
-				<th style="width: 10%" class="gci_hide"></th>
-				<th class="phone_display gci_product_table_sortable" onclick="sortTable(1, '<?php echo $table_id ?>')" style="width:19%"><span style="white-space:nowrap;" >Company <?php if($page_template !== 'member_home_page.php'){?><div class="comUp" style="display:inline; overflow: hidden; white-space: nowrap;">&#8593;</div><div class="comDown" style="overflow: hidden; white-space: nowrap; display:inline">&#8595;</div><?php } ?></span></th>
-				<th class="phone_display gci_product_table_sortable mobileShow" onclick="sortTable(2, '<?php echo $table_id ?>')" style="width:21%">Product ID <span style="white-space:nowrap;"><div class="IdUp" style="display:inline">&#8593;</div><div class="IdDown" style="display:inline">&#8595;</div></span></th>
-				<th class="gci_hide" style="border-style: solid; border-width: 1px; border-color: black;">Description</th>
-				<th class="phone_display_link" style="width: 5%; border-style: solid; border-width: 1px; border-color: black;">Power Rating</th>
-				<th class="phone_display_link" style="width: 5%; border-style: solid; border-width: 1px; border-color: black;">Input Voltage</th>
+				<th width="10%" class="gci_hide">Image</th>
+				<th width="16%" class="phone_display gci_product_table_sortable" onclick="sortTable(1, '<?php echo $table_id ?>')"><span style="white-space:nowrap;" >Company &#8645;</span></th>
+				<th width="21%" class="phone_display gci_product_table_sortable mobileShow" onclick="sortTable(2, '<?php echo $table_id ?>')"><span style="white-space:nowrap;">Product ID &#8645;</span></th>
+				<th width="22%" class="gci_hide" style="border-style: solid; border-width: 1px; border-color: black;">Description</th>
+				<th width="13%" class="phone_display_link" onclick="sortTable(4, '<?php echo $table_id ?>')" style="cursor: pointer; border-style: solid; border-width: 1px; border-color: black;"><span style="white-space:nowrap;">Power &#8645;</span></th>
+				<th width="13%" class="phone_display_link" onclick="sortTable(5, '<?php echo $table_id ?>')" style="cursor: pointer; border-style: solid; border-width: 1px; border-color: black;"><span style="white-space:nowrap;">Vin &#8645;</span></th>
 			</tr>
 	</thead>
 <?php

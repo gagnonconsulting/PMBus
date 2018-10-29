@@ -68,6 +68,10 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 								<?php
 								the_content();
 								//build table based on the input of custom field 'Company' in dashboard
+
+								// ------>
+								//Note TO DO - Automate product category 'company' to generate from the page's Company Taxonomy
+								// ------>
 								$company_custom_field = get_post_meta($post->ID, 'Company', true);
 								?>
 							</div>
