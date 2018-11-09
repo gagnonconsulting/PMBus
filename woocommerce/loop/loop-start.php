@@ -71,7 +71,7 @@ $nanProductTableLocal = $GLOBALS['nanProductTable'];
 $phaseProductTablesLocal = $GLOBALS['phaseProductTables'];
 $outputProductTablesLocal = $GLOBALS['outputProductTables'];
 
-echo htmlspecialchars($table_id);
+//echo htmlspecialchars($table_id);
 ?>
 
 	<div style='margin-left: -50px;'>

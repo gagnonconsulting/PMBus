@@ -1,6 +1,5 @@
 <?php
 function products_by_category(){
-include '../js/sorTable.php';
 
 $gci_category_contents = '';
 
