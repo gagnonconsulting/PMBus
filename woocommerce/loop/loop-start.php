@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	border-style: solid;
 	border-width: 1px;
 	border-color: black;
-	width: 10%;
+	width: 6%;
 }
 
 .arrowSpan {
@@ -105,13 +105,13 @@ $outputProductTablesLocal = $GLOBALS['outputProductTables'];
 				<!-- <th width="10%" class="gci_hide">Image</th> -->
 				<th width="18%" class="phone_display gci_product_table_sortable" onclick="sortTable(0, '<?php echo $table_id ?>')"><span style="white-space:nowrap;" >&#8645;Company</span></th>
 				<th width="22%" class="phone_display gci_product_table_sortable mobileShow" onclick="sortTable(1, '<?php echo $table_id ?>')"><span style="white-space:nowrap;">&#8645;Product ID</span></th>
-				<!-- <th width="22%" class="gci_hide" style="border-style: solid; border-width: 1px; border-color: black;">Description</th> -->
+				<th width="22%" class="gci_hide" style="border-style: solid; border-width: 1px; border-color: black; width:30%">Description</th>
 				<th class="productInfoTD" onclick="sortTableNum(2, '<?php echo $table_id ?>')"><span class="arrowSpan">&#8645;Pmin</span></th>
 				<th class="productInfoTD max" onclick="sortTableNum(3, '<?php echo $table_id ?>')"><span class="arrowSpan">&#8645;Pmax</span></th>
-				<th class="productInfoTD" onclick="sortTable(4, '<?php echo $table_id ?>')" style="border-right: double;" ><span class="arrowSpan">&#8645;</span></th>
+				<th class="productInfoTD" style="border-right: double;" ><span class="arrowSpan"></span></th>
 				<th class="productInfoTD" onclick="sortTableNum(5, '<?php echo $table_id ?>')"><span class="arrowSpan">&#8645;Vmin</span></th>
 				<th class="productInfoTD max" onclick="sortTableNum(6, '<?php echo $table_id ?>')"><span class="arrowSpan">&#8645;Vmax</span></th>
-				<th class="productInfoTD" onclick="sortTable(7, '<?php echo $table_id ?>')"><span class="arrowSpan">&#8645;</span></th>
+				<th class="productInfoTD" style="width:3%"><span class="arrowSpan"></span></th>
 			<?php } ?>
 			</tr>
 	</thead>

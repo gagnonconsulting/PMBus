@@ -99,6 +99,7 @@ function gci_show_product_info() {
     </tr> <?php
   }
 
+  //Table has Power min, max, units, voltage max, min and units
   else {
   ?>
     <tr>
@@ -116,15 +117,15 @@ function gci_show_product_info() {
         <a target="_blank" href="<?php echo $url ?>"><?php echo get_the_title(); ?></a>
       </td>
 
-      <!-- <td class='gci-product-table-td gci_hide'> -->
-        <?php //echo get_the_excerpt(); ?>
-      <!-- </td> -->
+      <td class='gci-product-table-td gci_hide'>
+        <?php echo get_the_excerpt(); ?>
+      </td>
 
-      <td style='border-right: 1px solid white; text-align: right;' class='gci-product-table-td' style="text-align: right;">
+      <td style='border-right: 1px solid white; text-align: right; padding:0px' class='gci-product-table-td' style="text-align: right;">
         <?php echo $product->get_attribute( 'pa_power-rating-min' ); ?>
       </td>
 
-      <td style='border-right: 1px solid white; text-align: right;' class='gci-product-table-td testClass'>
+      <td style='border-right: 1px solid white; text-align: right; padding:0px' class='gci-product-table-td testClass'>
         <?php echo $product->get_attribute( 'pa_power-rating-max' ); ?>
       </td>
 
@@ -132,11 +133,11 @@ function gci_show_product_info() {
         <?php echo $product->get_attribute( 'pa_power-rating-units' ); ?>
       </td>
 
-      <td style='border-right: 1px solid white; text-align: right;' class='gci-product-table-td' style='text-align: right;'>
+      <td style='border-right: 1px solid white; text-align: right;' class='gci-product-table-td' style='text-align: right; padding:0px'>
         <?php echo $product->get_attribute( 'pa_input-voltage-min' ); ?>
       </td>
 
-      <td style='border-right: 1px solid white; text-align: right;' class='gci-product-table-td' style='text-align: right;'>
+      <td style='border-right: 1px solid white; text-align: right;' class='gci-product-table-td' style='text-align: right; padding:0px'>
         <?php echo $product->get_attribute( 'pa_input-voltage-max' ); ?>
       </td>
 
