@@ -22,4 +22,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 	</table>
 </div>
-<?php
+<?php 

@@ -52,3 +52,5 @@ require_once( get_stylesheet_directory() . '/includes/members_pages/page_templat
 require_once( get_stylesheet_directory() . '/includes/members_pages/set_parent_default.php');
 
 require_once( get_stylesheet_directory() . '/includes/shortcodes/gravity_forms_styling.php');
+
+require_once( get_stylesheet_directory() . '/includes/product_tables/dynamic_table_display.php');
