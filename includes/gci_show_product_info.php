@@ -8,29 +8,48 @@ function gci_show_product_info() {
   $clickable_url = "<a style='color: #632262 !important;' target='_blank' href='".$url."'>Visit</a>";
   ?>
     <tr>
-      <td class='gci-product-table-td gci_hide'>
-        <center><?php echo get_the_post_thumbnail(); ?></center>
-      </td>
+      <!-- <td class='gci-product-table-td gci_hide'> -->
+        <center><?php  ?></center>
+      <!-- </td> -->
 
       <td class='gci-product-table-td'>
-        <?php echo $product->get_attribute( 'pa_company' ); ?>
+        <?php //echo $product->get_attribute( 'pa_company' );
+          echo get_the_post_thumbnail();
+        ?>
       </td>
 
       <td class='gci-product-table-td'>
         <a target="_blank" href="<?php echo $url ?>"><?php echo get_the_title(); ?></a>
       </td>
 
-      <td class='gci-product-table-td gci_hide'>
-        <?php echo get_the_excerpt(); ?>
+      <!-- <td class='gci-product-table-td gci_hide'> -->
+        <?php //echo get_the_excerpt(); ?>
+      <!-- </td> -->
+
+      <td class='gci-product-table-td'>
+        <?php echo $product->get_attribute( 'pa_power-rating-min' ); ?>
       </td>
 
       <td class='gci-product-table-td'>
-        <?php echo $product->get_attribute( 'pa_power-rating' ); ?>
+        <?php echo $product->get_attribute( 'pa_power-rating-max' ); ?>
       </td>
 
       <td class='gci-product-table-td'>
-        <?php echo $product->get_attribute( 'pa_input-voltage' ); ?>
+        <?php echo $product->get_attribute( 'pa_power-rating-units' ); ?>
       </td>
+
+      <td class='gci-product-table-td'>
+        <?php echo $product->get_attribute( 'pa_input-voltage-min' ); ?>
+      </td>
+
+      <td class='gci-product-table-td'>
+        <?php echo $product->get_attribute( 'pa_input-voltage-max' ); ?>
+      </td>
+
+      <td class='gci-product-table-td'>
+        <?php echo $product->get_attribute( 'pa_input-voltage-units' ); ?>
+      </td>
+
     </tr>
   <?php
 
