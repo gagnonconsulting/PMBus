@@ -230,7 +230,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 										"
 										);
 
-										//Child Category Loop Run list of product IDs variable
+										//Child Category Loop Run list of products by IDs as an array 
 										$pid = '';
 										//Running through array of products in child category and adding IDs $pid seperated by a comma
 										for ($k = 0; $k < count($pq); $k++) {

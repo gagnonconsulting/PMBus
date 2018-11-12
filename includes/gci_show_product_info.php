@@ -102,6 +102,11 @@ function gci_show_product_info() {
   //Table has Power min, max, units, voltage max, min and units
   else {
   ?>
+  <style>
+    .gci-product-table-td {
+      font-size: .8em;
+    }
+    </style>
     <tr>
       <!-- <td class='gci-product-table-td gci_hide'> -->
         <center><?php  ?></center>
@@ -129,7 +134,7 @@ function gci_show_product_info() {
         <?php echo $product->get_attribute( 'pa_power-rating-max' ); ?>
       </td>
 
-      <td style="font-size:.8em" class='gci-product-table-td'>
+      <td style="font-size:.8em;" class='gci-product-table-td'>
         <?php echo $product->get_attribute( 'pa_power-rating-units' ); ?>
       </td>
 

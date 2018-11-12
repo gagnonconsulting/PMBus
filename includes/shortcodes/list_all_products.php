@@ -32,7 +32,7 @@ ob_start();
           background-position:0;
         }
       </style>
-      <li><h2><a href='<?= get_term_link($parent_product_cat->term_id) ?>'><?= $parent_product_cat->name ?></a></h2>
+      <li><h2><?= $parent_product_cat->name ?></h2>
         <hr align='left' width='50%'><br>
 
         <ul>
@@ -119,7 +119,7 @@ function products_by_company() {
         }
       </style>
 
-      <li><h2><a href='<?= get_term_link($parent_product_cat->term_id) ?>'><?= $parent_product_cat->name ?></a></h2>
+      <li><h2><?= $parent_product_cat->name ?></h2>
         <hr align='left' width='50%'><br>
         <ul>
 

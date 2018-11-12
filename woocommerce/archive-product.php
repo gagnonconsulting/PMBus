@@ -28,12 +28,29 @@ get_header( 'shop' );
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
 do_action( 'woocommerce_before_main_content' );
+$page_title = woocommerce_page_title(false);
+
+
+global $wpdb;
+$tableTitle = $wpdb->get_results(
+"
+SELECT slug FROM `wp_terms` WHERE name = '$page_title'
+"
+);
+
+$page_title = $tableTitle[0]->slug;
+
 
 ?>
 <header class="woocommerce-products-header">
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
-	<?php endif; ?>
+		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title() ?></h1>
+	<?php
+
+	$GLOBALS['gci_table_name'] = $page_title;
+
+
+	endif; ?>
 
 	<?php
 	/**
@@ -43,7 +60,6 @@ do_action( 'woocommerce_before_main_content' );
 	 * @hooked woocommerce_product_archive_description - 10
 	 */
 	do_action( 'woocommerce_archive_description' );
-
 	?>
 </header>
 <script type="text/javascript">
