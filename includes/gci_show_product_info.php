@@ -29,7 +29,7 @@ function gci_show_product_info() {
       </td>
 
       <td class='gci-product-table-td'>
-        <a <?php if($url !== ''){?>target="_blank" href="<?php echo $url ?>"<?php }?>><?php echo get_the_title(); ?></a>
+        <?php if($url !== ''){?><a target="_blank" href="<?php echo $url ?>"><?php }?><?php echo get_the_title(); ?><?php if($url !== ''){?></a><?php } ?>
       </td>
 
       <td class='gci-product-table-td gci_hide'>
