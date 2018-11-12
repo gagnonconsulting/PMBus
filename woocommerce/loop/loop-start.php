@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .arrowSpan {
-		margin-left: -10px;
+		margin-left: -6px;
 		white-space:nowrap;
 }
 
