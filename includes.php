@@ -54,3 +54,5 @@ require_once( get_stylesheet_directory() . '/includes/members_pages/set_parent_d
 require_once( get_stylesheet_directory() . '/includes/shortcodes/gravity_forms_styling.php');
 
 require_once( get_stylesheet_directory() . '/includes/product_tables/dynamic_table_display.php');
+
+require_once( get_stylesheet_directory() . '/includes/company_taxonomy/smif_member_status.php');

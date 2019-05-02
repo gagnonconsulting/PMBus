@@ -42,7 +42,6 @@ function add_pmbus_admin_menu(){
   			 99); */
 }
 
-
 add_action('add_pmbus_admin_menu', 'add_custom_link_into_appearnace_menu');
 function add_custom_link_into_appearnace_menu() {
     global $submenu;
