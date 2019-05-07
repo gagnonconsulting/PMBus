@@ -79,10 +79,10 @@ function remove_admin_menu_links(){
   }
 }
 
-if ( $user ) {
-    if( $user && isset($user->user_email) && 'Richard@gagnonconsulting.com' == $user->user_email )
-			show_admin_bar( false );
-}
+// if ( $user ) {
+//     if( $user && isset($user->user_email) && 'Richard@gagnonconsulting.com' == $user->user_email )
+// 			show_admin_bar( false );
+// }
 
 function companies_menu_link(){
   add_menu_page( 'custom menu link', 'SMIF Members', 'manage_options', 'any-url', 'wpsites_custom_menu_link', 'dashicons-id', 3 );

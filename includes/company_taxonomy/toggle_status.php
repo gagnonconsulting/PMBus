@@ -16,7 +16,10 @@ $companies_smif_member_name = $term22->name; // SMIF Member name
 // Wordpress global DB variable
 global $wpdb;
 // Get the post ID of the page belonging to the selected SMIF member
-$results = $wpdb->get_results("SELECT post.ID FROM `wp_posts` post, `wp_postmeta` meta WHERE post.ID = meta.post_id AND meta.meta_key = 'Company' AND meta.meta_value = '$product_category_smif_slug'");
+$product_results = $wpdb->get_results("SELECT post.ID FROM `wp_posts` post, `wp_postmeta` meta WHERE post.ID = meta.post_id AND meta.meta_key = 'Company' AND meta.meta_value = '$product_category_smif_slug'");
+
+$results = $wpdb->get_results("SELECT * FROM `wp_posts` post, `wp_term_relationships` term_rel, `wp_terms` term WHERE post.post_name = '$companies_smif_member_slug' AND post.post_type = 'page'AND term_rel.object_id = post.ID AND term.term_id = term_rel.term_taxonomy_id GROUP BY ID");
+
 $page_id = $results[0]->ID;
 
 // Activate Member and Publish Page Function
@@ -151,12 +154,16 @@ function publish_smif_member_products($product_category_smif_member_slug, $produ
 
 // Activate/Publish the SMIF member and its content
 if($action == 'activate'){
-  publish_smif_member_products($smif_product_category_slug, $smif_product_category_id);
+  if($product_results){
+    publish_smif_member_products($smif_product_category_slug, $smif_product_category_id);
+  }
   activate_smif_member_and_publish_page($term22, $page_id, $companies_smif_member_name);
 }
 // Deactivate/Draft the SMIF member and its content
 elseif ($action == 'deactivate'){
-  draft_smif_member_products($smif_product_category_slug, $smif_product_category_id);
+  if($product_results){
+    draft_smif_member_products($smif_product_category_slug, $smif_product_category_id);
+  }
   deactivate_smif_member_and_draft_page($term22, $page_id, $companies_smif_member_name);
 }
 // else {

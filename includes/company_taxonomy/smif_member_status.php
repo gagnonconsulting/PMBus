@@ -49,3 +49,15 @@ function my_custom_taxonomy_columns_content2( $content, $column_name, $term_id )
 	return $content;
 }
 add_filter( 'manage_companies_custom_column', 'my_custom_taxonomy_columns_content2', 10, 3 );
+
+
+function my_enqueue($hook) {
+    // Only add to the edit.php admin page.
+    // See WP docs.
+    if ('edit.php' !== $hook) {
+        return;
+    }
+    wp_enqueue_script('my_custom_script', plugin_dir_url(__FILE__) . '/toggle_status_function.js');
+}
+
+add_action('admin_enqueue_scripts', 'my_enqueue');
